@@ -1,9 +1,11 @@
-// 1. Initialize Icons
+// 1. Initialize Icons & Event Listeners
 document.addEventListener("DOMContentLoaded", () => {
   if (window.lucide) {
     lucide.createIcons();
   }
   startCountdown();
+  startDropLiveTimer();
+  initHotspots();
 });
 
 // 2. Cart Functionality
@@ -55,7 +57,7 @@ function showToast(msg) {
   }, 2200);
 }
 
-// 3. Drop Countdown Timer
+// 3. Drop Countdown Timer (Bottom Strip)
 function startCountdown() {
   let totalSeconds = 9 * 3600 + 42 * 60 + 18; // 09:42:18 initial
 
@@ -77,7 +79,37 @@ function startCountdown() {
   }, 1000);
 }
 
-// 4. Filter Tabs Logic
+// 4. Hero Top Pill Timer (02D : 14H : 32M)
+function startDropLiveTimer() {
+  const timerBadge = document.querySelector(".badge-timer");
+  if (!timerBadge) return;
+
+  let totalSeconds = 2 * 86400 + 14 * 3600 + 32 * 60;
+
+  setInterval(() => {
+    if (totalSeconds <= 0) return;
+    totalSeconds--;
+
+    let days = Math.floor(totalSeconds / 86400);
+    let hrs = Math.floor((totalSeconds % 86400) / 3600);
+    let mins = Math.floor((totalSeconds % 3600) / 60);
+
+    timerBadge.innerText = `${days.toString().padStart(2, "0")}D : ${hrs.toString().padStart(2, "0")}H : ${mins.toString().padStart(2, "0")}M`;
+  }, 1000);
+}
+
+// 5. Lookbook Hotspot Click Handlers
+function initHotspots() {
+  const hotspots = document.querySelectorAll(".hotspot");
+  hotspots.forEach((spot) => {
+    spot.addEventListener("click", () => {
+      const itemTitle = spot.getAttribute("title") || "Selected Item";
+      showToast(`Selected: ${itemTitle}`);
+    });
+  });
+}
+
+// 6. Filter Tabs Logic
 const tabs = document.querySelectorAll(".pill-tab");
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
