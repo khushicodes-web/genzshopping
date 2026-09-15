@@ -1,91 +1,87 @@
-// 1. Custom Smooth Cursor
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorOutline = document.querySelector('.cursor-outline');
-const hoverTargets = document.querySelectorAll('.hover-target, a, button, .sticker');
+// 1. Initialize Icons
+document.addEventListener("DOMContentLoaded", () => {
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+  startCountdown();
+});
 
-let mouseX = window.innerWidth / 2;
-let mouseY = window.innerHeight / 2;
-let outlineX = mouseX;
-let outlineY = mouseY;
-let cursorVisible = false;
+// 2. Cart Functionality
+let cartCount = 0;
 
-window.addEventListener('mousemove', (e) => {
-  // Pehle mouse move par hi cursor visible hoga taaki top-left me dot na dikhe
-  if (!cursorVisible) {
-    cursorDot.classList.add('cursor-active');
-    cursorOutline.classList.add('cursor-active');
-    cursorVisible = true;
+function addToCart(productName) {
+  cartCount++;
+  const badge = document.getElementById("cartCount");
+  if (badge) {
+    badge.innerText = cartCount;
+
+    // Pulse animation
+    badge.style.transform = "scale(1.4)";
+    setTimeout(() => {
+      badge.style.transform = "scale(1)";
+    }, 180);
   }
 
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-
-  cursorDot.style.left = `${mouseX}px`;
-  cursorDot.style.top = `${mouseY}px`;
-});
-
-function animateCursor() {
-  outlineX += (mouseX - outlineX) * 0.15;
-  outlineY += (mouseY - outlineY) * 0.15;
-
-  cursorOutline.style.left = `${outlineX}px`;
-  cursorOutline.style.top = `${outlineY}px`;
-
-  requestAnimationFrame(animateCursor);
+  // Visual confirmation toast
+  showToast(`Added "${productName}" to bag!`);
 }
-animateCursor();
 
-// Cursor Hover Expand
-hoverTargets.forEach((target) => {
-  target.addEventListener('mouseenter', () => cursorOutline.classList.add('cursor-grow'));
-  target.addEventListener('mouseleave', () => cursorOutline.classList.remove('cursor-grow'));
-});
+function openCart() {
+  if (cartCount === 0) {
+    alert("Your bag is empty. Check out the 3 AM drop!");
+  } else {
+    alert(`You have ${cartCount} item(s) in your bag. Proceeding to checkout.`);
+  }
+}
 
-// 2. Draggable Stickers Logic
-const draggables = document.querySelectorAll('.drag-item');
+function showToast(msg) {
+  let toast = document.createElement("div");
+  toast.innerText = msg;
+  toast.style.position = "fixed";
+  toast.style.bottom = "24px";
+  toast.style.right = "24px";
+  toast.style.background = "#000";
+  toast.style.color = "#fff";
+  toast.style.padding = "12px 24px";
+  toast.style.borderRadius = "999px";
+  toast.style.fontSize = "13px";
+  toast.style.fontWeight = "700";
+  toast.style.zIndex = "9999";
+  toast.style.boxShadow = "0 8px 20px rgba(0,0,0,0.3)";
+  document.body.appendChild(toast);
 
-draggables.forEach((item) => {
-  let isDragging = false;
-  let offsetX = 0;
-  let offsetY = 0;
+  setTimeout(() => {
+    toast.remove();
+  }, 2200);
+}
 
-  item.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    offsetX = e.clientX - item.getBoundingClientRect().left;
-    offsetY = e.clientY - item.getBoundingClientRect().top;
-    item.style.zIndex = 100;
-  });
+// 3. Drop Countdown Timer
+function startCountdown() {
+  let totalSeconds = 9 * 3600 + 42 * 60 + 18; // 09:42:18 initial
 
-  window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    item.style.left = `${e.clientX - offsetX}px`;
-    item.style.top = `${e.clientY - offsetY}px`;
-  });
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+  const secondsEl = document.getElementById("seconds");
 
-  window.addEventListener('mouseup', () => {
-    isDragging = false;
-  });
-});
+  setInterval(() => {
+    if (totalSeconds <= 0) return;
+    totalSeconds--;
 
-// 3. 3D Card Tilt on Mouse Move
-const tiltCards = document.querySelectorAll('.tilt-card');
+    let hrs = Math.floor(totalSeconds / 3600);
+    let mins = Math.floor((totalSeconds % 3600) / 60);
+    let secs = totalSeconds % 60;
 
-tiltCards.forEach((card) => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    if (hoursEl) hoursEl.innerText = hrs.toString().padStart(2, "0");
+    if (minutesEl) minutesEl.innerText = mins.toString().padStart(2, "0");
+    if (secondsEl) secondsEl.innerText = secs.toString().padStart(2, "0");
+  }, 1000);
+}
 
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = ((y - centerY) / centerY) * -8;
-    const rotateY = ((x - centerX) / centerX) * 8;
-
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
-  });
-
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+// 4. Filter Tabs Logic
+const tabs = document.querySelectorAll(".pill-tab");
+tabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    tabs.forEach((t) => t.classList.remove("active"));
+    tab.classList.add("active");
   });
 });
