@@ -312,15 +312,23 @@ body {
   margin-bottom: 20px;
 }
 
-.gradient-text {
-  background: linear-gradient(90deg, #7c3aed, #ec4899);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Wavy Text Effects (Image 1 Style) */
+.wavy-word {
+  position: relative;
+  display: inline-block;
+  text-decoration: underline wavy;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 4px;
 }
 
-.lime-text {
-  color: #55c400;
-  text-shadow: 2px 2px 0px #000;
+.wavy-word.violet {
+  color: #7c3aed;
+  text-decoration-color: #acf847;
+}
+
+.wavy-word.lime {
+  color: #7c3aed;
+  text-decoration-color: #acf847;
 }
 
 .hero-desc {
@@ -413,141 +421,136 @@ body {
   color: var(--text-muted);
 }
 
-/* Hero Cards Stack */
-.hero-cards-stack {
-  position: relative;
+/* ==========================================================================
+   Hero Right Side-by-Side Dual Card Stage (Exact Image 1 Spec)
+   ========================================================================== */
+.hero-side-by-side {
   display: flex;
+  align-items: flex-end;
+  gap: 20px;
   justify-content: center;
-  width: 100%;
-  max-width: 440px;
-  margin: 0 auto;
 }
 
-.hero-card {
-  border-radius: 24px;
+/* Left Tall Main Card */
+.hero-box-left {
+  width: 310px;
+  height: 490px;
+  border-radius: 22px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-}
-
-.main-card {
-  width: 100%;
-  max-width: 380px;
-  height: 520px;
   position: relative;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+  background: #eaeaea;
 }
 
-.main-card img {
+.hero-box-left img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.card-tag {
-  position: absolute;
-  top: 18px;
-  left: 18px;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: #fff;
-  padding: 6px 12px;
-  border-radius: 999px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+/* Right Column (Sub card + Rating Box) */
+.hero-box-right {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 220px;
 }
 
-.card-tag.mini {
-  top: auto;
-  bottom: 12px;
-  left: 10px;
-  right: 10px;
-  text-align: center;
-  font-size: 10px;
-  background: rgba(255, 255, 255, 0.9);
-  color: #111;
-  padding: 5px 8px;
-  border-radius: 8px;
-}
-
-.card-bottom-tag {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  padding: 6px 12px;
-  border-radius: 999px;
-}
-
-.sub-card {
-  position: absolute;
-  top: 15%;
-  right: -25px;
-  width: 190px;
-  height: 270px;
-  border: 4px solid #fff;
+.sub-tall-card {
+  width: 100%;
+  height: 380px;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+  position: relative;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+  background: #eaeaea;
 }
 
-.sub-card img {
+.sub-tall-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.community-rating-card {
+/* Frosted Pill Tags on Model Cards */
+.pill-top-tag {
   position: absolute;
-  bottom: -15px;
-  right: -15px;
-  background: var(--accent-lime);
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #09090b;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.pill-bottom-tag {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+.pill-bottom-tag.mini {
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
   color: #000;
-  padding: 12px 18px;
+}
+
+/* Standalone Rating Strip Card under right card */
+.rating-strip-card {
+  background: var(--accent-lime-bright);
+  color: #102000;
+  padding: 12px 16px;
   border-radius: 16px;
   display: flex;
   align-items: center;
-  gap: 14px;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  justify-content: space-between;
+  box-shadow: 0 10px 24px rgba(65, 105, 0, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.4);
-  z-index: 5;
 }
 
-.rating-title {
+.rating-meta span {
+  display: block;
   font-family: var(--font-mono);
   font-size: 9px;
   font-weight: 800;
-  letter-spacing: 0.12em;
-  display: block;
+  letter-spacing: 0.1em;
 }
 
-.rating-info strong {
+.rating-meta strong {
   font-size: 15px;
   font-weight: 800;
 }
 
-.rating-spark {
+.rating-lightning {
   background: #000;
-  color: var(--accent-lime);
+  color: var(--accent-lime-bright);
   width: 32px;
   height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.rating-spark svg {
-  width: 16px;
-  height: 16px;
+  font-size: 15px;
 }
 
 /* 4. Common Section Layout */
@@ -1406,6 +1409,17 @@ body {
   }
 }
 
+@media (max-width: 900px) {
+  .hero-side-by-side {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-box-left, .hero-box-right {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
 @media (max-width: 768px) {
   .header-inner {
     padding: 12px 16px;
@@ -1421,22 +1435,6 @@ body {
   .banner-section,
   .newsletter-section {
     padding: 40px 20px;
-  }
-
-  .hero-cards-stack {
-    margin-top: 20px;
-  }
-
-  .sub-card {
-    right: -10px;
-    width: 150px;
-    height: 210px;
-  }
-
-  .community-rating-card {
-    right: 0;
-    bottom: -10px;
-    padding: 8px 14px;
   }
 
   .quick-add {
