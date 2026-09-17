@@ -142,13 +142,15 @@
     </div>
   </section>
 
-  <!-- 2. Trending Section (Exact 1:1 Match + Click-to-Pop Tray) -->
+  <!-- 2. Trending Section (Single Line Title + Original Images + Click Pop) -->
   <section class="section" id="trending">
     <div class="trending-header-bar">
       <div class="trending-meta-left">
         <span class="eyebrow-purple">• REAL-TIME HYPE MONITOR</span>
-        <h2 class="section-title">TRENDING RIGHT NOW</h2>
-        <div class="fire-emoji-badge">🔥</div>
+        <div class="trending-title-line">
+          <h2 class="section-title">TRENDING RIGHT NOW</h2>
+          <span class="fire-emoji-inline">🔥</span>
+        </div>
         <p class="trending-sub">What the feed is obsessing over this second.</p>
       </div>
 
@@ -167,7 +169,7 @@
     </div>
 
     <div class="products-grid">
-      <!-- Card 1: Denim Bomber Model -->
+      <!-- Card 1: Denim Bomber Standing Model -->
       <div class="product-item product-card" data-category="streetwear" onclick="toggleSizeTray(this)">
         <div class="product-img-box">
           <div class="badges-stack">
@@ -179,8 +181,7 @@
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
           </button>
-          <!-- Exact Standing Denim Model Image -->
-          <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=700&auto=format&fit=crop" alt="Distressed Denim Bomber" />
+          <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=700&auto=format&fit=crop" alt="Distressed Denim Bomber" />
           
           <div class="size-quick-tray" onclick="event.stopPropagation()">
             <span class="tray-label">SIZES:</span>
@@ -219,8 +220,7 @@
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
           </button>
-          <!-- Exact Chunky Runner Sneaker Image -->
-          <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=700&auto=format&fit=crop" alt="Cyber-Stride Chunky 02 Platform" />
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=700&auto=format&fit=crop" alt="Cyber-Stride Chunky 02 Platform" />
           
           <div class="size-quick-tray" onclick="event.stopPropagation()">
             <span class="tray-label">SIZES:</span>
@@ -254,7 +254,7 @@
           </div>
           <button class="wishlist-btn-round" title="Wishlist" onclick="event.stopPropagation(); showToast('Saved to wishlist')">
             <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
           </button>
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop" alt="Liquid Chrome Tactical Mini Sling" />
@@ -291,8 +291,7 @@
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
           </button>
-          <!-- Exact Purple Streetwear Model -->
-          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=700&auto=format&fit=crop" alt="Ultraviolet Glitch Jacquard Sweater" />
+          <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=700&auto=format&fit=crop" alt="Ultraviolet Glitch Jacquard Sweater" />
           
           <div class="size-quick-tray" onclick="event.stopPropagation()">
             <span class="tray-label">SIZES:</span>
@@ -658,6 +657,6 @@
   </aside>
 
   <!-- Script with cache-buster -->
-  <script src="script.js?v=13"></script>
+  <script src="script.js?v=14"></script>
 </body>
 </html>
