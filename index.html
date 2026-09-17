@@ -166,19 +166,19 @@
     </div>
   </section>
 
-  <!-- Trending Section (Exact Image 1 Spec) -->
+  <!-- Trending Section (Exact 1:1 NOVA ERA Replica) -->
   <section class="section" id="trending">
-    <div class="trending-header-row">
-      <!-- Left: Title & Subtitle -->
-      <div class="trending-left-meta">
+    <div class="trending-header-bar">
+      <!-- Left Metadata -->
+      <div class="trending-meta-left">
         <span class="eyebrow-purple">• REAL-TIME HYPE MONITOR</span>
         <h2 class="section-title">TRENDING RIGHT NOW</h2>
         <div class="fire-emoji-badge">🔥</div>
         <p class="trending-sub">What the feed is obsessing over this second.</p>
       </div>
 
-      <!-- Right: Filter Buttons + Slider Track -->
-      <div class="trending-right-filters">
+      <!-- Right Filters & Track Bar -->
+      <div class="trending-filters-right">
         <div class="pill-tabs">
           <button class="pill-tab active" data-filter="all">All</button>
           <button class="pill-tab" data-filter="streetwear">Streetwear</button>
@@ -193,7 +193,7 @@
     </div>
 
     <div class="products-grid">
-      <!-- Product 1: Distressed Denim Bomber with Size Tray -->
+      <!-- Product 1: Denim Bomber Model -->
       <div class="product-item product-card" data-category="streetwear">
         <div class="product-img-box">
           <div class="badges-stack">
@@ -203,11 +203,10 @@
           <button class="wishlist-btn-round" title="Wishlist" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=700&auto=format&fit=crop" alt="Distressed Denim Bomber" />
+          <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=700&auto=format&fit=crop" alt="Distressed Denim Bomber" />
           
-          <!-- Quick Add with S M L buttons -->
           <div class="size-quick-tray">
-            <span class="tray-label">QUICK ADD:</span>
+            <span class="tray-label">SIZES:</span>
             <div class="size-buttons">
               <button class="size-pill" onclick="addToCart('Distressed Bomber (S)')">S</button>
               <button class="size-pill" onclick="addToCart('Distressed Bomber (M)')">M</button>
@@ -216,14 +215,22 @@
           </div>
         </div>
         <div class="product-details">
-          <div class="product-info-left">
-            <span class="cat-label">NOVA ERA ATELIER</span>
-            <h3 class="product-name-purple">Distressed Oversized Denim Bomber</h3>
+          <span class="cat-label">NOVA ERA ATELIER</span>
+          <h3 class="product-title-link">Distressed Oversized Denim Bomber</h3>
+          <div class="price-row">
+            <div class="pricing-numbers">
+              <strong>$89.00</strong>
+              <del>$128.00</del>
+            </div>
+            <button class="mini-cart-btn" onclick="addToCart('Distressed Oversized Denim Bomber')" title="Quick Add">
+              <i data-lucide="shopping-bag"></i>
+            </button>
           </div>
+          <div class="rating-row">★ 4.9 (1,240)</div>
         </div>
       </div>
 
-      <!-- Product 2: Cyber Chunky Sneakers -->
+      <!-- Product 2: Cyber Chunky Runners -->
       <div class="product-item product-card" data-category="gorpcore">
         <div class="product-img-box">
           <div class="badges-stack">
@@ -233,17 +240,33 @@
           <button class="wishlist-btn-round" title="Wishlist" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&auto=format&fit=crop" alt="Cyber Stride Platform" />
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=700&auto=format&fit=crop" alt="Cyber-Stride Chunky Platform" />
+          
+          <div class="size-quick-tray">
+            <span class="tray-label">SIZES:</span>
+            <div class="size-buttons">
+              <button class="size-pill" onclick="addToCart('Cyber Platform (38)')">38</button>
+              <button class="size-pill" onclick="addToCart('Cyber Platform (40)')">40</button>
+              <button class="size-pill" onclick="addToCart('Cyber Platform (42)')">42</button>
+            </div>
+          </div>
         </div>
         <div class="product-details">
-          <div class="product-info-left">
-            <span class="cat-label">NOVA FOOTWEAR LAB</span>
-            <h3>Cyber-Stride Chunky 02 Platform</h3>
+          <span class="cat-label">NOVA FOOTWEAR LAB</span>
+          <h3 class="product-title-link purple-accent">Cyber-Stride Chunky 02 Platform</h3>
+          <div class="price-row">
+            <div class="pricing-numbers">
+              <strong>$145.00</strong>
+            </div>
+            <button class="mini-cart-btn" onclick="addToCart('Cyber-Stride Chunky 02 Platform')" title="Quick Add">
+              <i data-lucide="shopping-bag"></i>
+            </button>
           </div>
+          <div class="rating-row">★ 4.8 (982)</div>
         </div>
       </div>
 
-      <!-- Product 3: Tactical Sling / Suit -->
+      <!-- Product 3: Model with Sling Bag in Tailored Set -->
       <div class="product-item product-card" data-category="clean">
         <div class="product-img-box">
           <div class="badges-stack">
@@ -252,17 +275,25 @@
           <button class="wishlist-btn-round" title="Wishlist" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=700&auto=format&fit=crop" alt="Liquid Chrome Sling" />
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop" alt="Tactical Mini Sling" />
         </div>
         <div class="product-details">
-          <div class="product-info-left">
-            <span class="cat-label">NOVA ACCESSORIES</span>
-            <h3>Liquid Chrome Tactical Mini Sling</h3>
+          <span class="cat-label">NOVA ACCESSORIES</span>
+          <h3 class="product-title-link purple-accent">Liquid Chrome Tactical Mini Sling</h3>
+          <div class="price-row">
+            <div class="pricing-numbers">
+              <strong>$58.00</strong>
+              <del>$75.00</del>
+            </div>
+            <button class="mini-cart-btn" onclick="addToCart('Liquid Chrome Tactical Mini Sling')" title="Quick Add">
+              <i data-lucide="shopping-bag"></i>
+            </button>
           </div>
+          <div class="rating-row">★ 5.0 (3,410)</div>
         </div>
       </div>
 
-      <!-- Product 4: Ultraviolet Glitch Sweater -->
+      <!-- Product 4: Purple Glitch Sweater Model -->
       <div class="product-item product-card" data-category="y2k">
         <div class="product-img-box">
           <div class="badges-stack">
@@ -271,13 +302,20 @@
           <button class="wishlist-btn-round" title="Wishlist" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=700&auto=format&fit=crop" alt="Ultraviolet Glitch Jacquard" />
+          <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=700&auto=format&fit=crop" alt="Ultraviolet Glitch Jacquard" />
         </div>
         <div class="product-details">
-          <div class="product-info-left">
-            <span class="cat-label">ARCHIVAL KNITWEAR</span>
-            <h3>Ultraviolet Glitch Jacquard Sweater</h3>
+          <span class="cat-label">ARCHIVAL KNITWEAR</span>
+          <h3 class="product-title-link">Ultraviolet Glitch Jacquard Sweater</h3>
+          <div class="price-row">
+            <div class="pricing-numbers">
+              <strong>$110.00</strong>
+            </div>
+            <button class="mini-cart-btn" onclick="addToCart('Ultraviolet Glitch Jacquard Sweater')" title="Quick Add">
+              <i data-lucide="shopping-bag"></i>
+            </button>
           </div>
+          <div class="rating-row">★ 4.9 (815)</div>
         </div>
       </div>
     </div>
@@ -552,6 +590,6 @@
   </aside>
 
   <!-- Script File with cache buster -->
-  <script src="script.js?v=8"></script>
+  <script src="script.js?v=9"></script>
 </body>
 </html>
