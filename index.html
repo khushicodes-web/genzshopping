@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>overthink.club™ — Your Style. Your Era.</title>
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Plus Jakarta Sans, Syne, Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Ceiling Infinite Loader -->
+  <div class="ceiling-loader"></div>
 
   <!-- Top Announcement Bar -->
   <div class="announcement-bar">
@@ -58,7 +61,7 @@
         </div>
 
         <!-- Wishlist Icon Button -->
-        <button class="icon-btn" title="Wishlist" onclick="showToast('Wishlist feature coming soon!')">
+        <button class="icon-btn" title="Wishlist" onclick="showToast('Wishlist syncing...')">
           <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
@@ -175,6 +178,9 @@
       <div class="product-item product-card" data-category="cargos">
         <div class="product-img-box">
           <span class="tag-badge badge-black">HOT</span>
+          <button class="wishlist-heart-btn" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
+            <i data-lucide="heart"></i>
+          </button>
           <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=700&auto=format&fit=crop" alt="Denim Jacket" />
           <button class="quick-add" onclick="addToCart('Acid Wash Work Jacket')">+ Quick Add</button>
         </div>
@@ -191,6 +197,9 @@
       <div class="product-item product-card" data-category="footwear">
         <div class="product-img-box">
           <span class="tag-badge badge-lime">NEW</span>
+          <button class="wishlist-heart-btn" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
+            <i data-lucide="heart"></i>
+          </button>
           <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&auto=format&fit=crop" alt="Techwear Runners" />
           <button class="quick-add" onclick="addToCart('Phantom Cyber Runners')">+ Quick Add</button>
         </div>
@@ -207,6 +216,9 @@
       <div class="product-item product-card" data-category="tees">
         <div class="product-img-box">
           <span class="tag-badge badge-purple">LIMITED</span>
+          <button class="wishlist-heart-btn" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
+            <i data-lucide="heart"></i>
+          </button>
           <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=700&auto=format&fit=crop" alt="Gothic Graphic Tee" />
           <button class="quick-add" onclick="addToCart('Overthink 3 AM Tee')">+ Quick Add</button>
         </div>
@@ -223,6 +235,9 @@
       <div class="product-item product-card" data-category="hoodies">
         <div class="product-img-box">
           <span class="tag-badge badge-black">POPULAR</span>
+          <button class="wishlist-heart-btn" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
+            <i data-lucide="heart"></i>
+          </button>
           <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=700&auto=format&fit=crop" alt="Boxy Zip Hoodie" />
           <button class="quick-add" onclick="addToCart('Neural Glitch Hoodie')">+ Quick Add</button>
         </div>
@@ -490,7 +505,22 @@
     </div>
   </footer>
 
+  <!-- Floating Lookbook Dock -->
+  <aside class="floating-mod-dock">
+    <button class="dock-pill-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+      <i data-lucide="arrow-up" style="width: 15px; height: 15px;"></i> Top
+    </button>
+    <div class="dock-divider"></div>
+    <button class="dock-pill-btn" onclick="showToast('Saved items synced')">
+      <i data-lucide="bookmark" style="width: 15px; height: 15px;"></i> Saved
+    </button>
+    <div class="dock-divider"></div>
+    <button class="dock-pill-btn" onclick="openCart()">
+      <i data-lucide="shopping-bag" style="width: 15px; height: 15px;"></i> Bag (<span id="dockCartCount">0</span>)
+    </button>
+  </aside>
+
   <!-- Script File with cache buster -->
-  <script src="script.js?v=3"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>
