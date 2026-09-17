@@ -89,7 +89,7 @@
     </div>
   </header>
 
-  <!-- Hero Section (Exact 2-Card Layout, Container Dimensions Locked) -->
+  <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-container">
       
@@ -168,18 +168,17 @@
 
   <!-- Trending Section (Exact Image 1 Spec) -->
   <section class="section" id="trending">
-    <div class="trending-header-wrap">
-      <div class="trending-title-group">
+    <div class="trending-header-row">
+      <!-- Left: Title & Subtitle -->
+      <div class="trending-left-meta">
         <span class="eyebrow-purple">• REAL-TIME HYPE MONITOR</span>
-        <div class="title-with-badge">
-          <h2 class="section-title">TRENDING RIGHT NOW</h2>
-        </div>
+        <h2 class="section-title">TRENDING RIGHT NOW</h2>
         <div class="fire-emoji-badge">🔥</div>
         <p class="trending-sub">What the feed is obsessing over this second.</p>
       </div>
 
-      <!-- Filter Controls & Progress Bar -->
-      <div class="filter-controls-col">
+      <!-- Right: Filter Buttons + Slider Track -->
+      <div class="trending-right-filters">
         <div class="pill-tabs">
           <button class="pill-tab active" data-filter="all">All</button>
           <button class="pill-tab" data-filter="streetwear">Streetwear</button>
@@ -187,7 +186,6 @@
           <button class="pill-tab" data-filter="gorpcore">Gorpcore</button>
           <button class="pill-tab" data-filter="clean">Clean Fit</button>
         </div>
-        <!-- Progress Bar Track -->
         <div class="filter-scroll-track">
           <div class="filter-scroll-thumb"></div>
         </div>
@@ -195,96 +193,91 @@
     </div>
 
     <div class="products-grid">
-      <!-- Product 1: Denim Jacket with S M L size tray -->
+      <!-- Product 1: Distressed Denim Bomber with Size Tray -->
       <div class="product-item product-card" data-category="streetwear">
         <div class="product-img-box">
           <div class="badges-stack">
             <span class="tag-badge badge-lime">VIRAL ON TIKTOK</span>
             <span class="tag-badge badge-purple">-30% OFF</span>
           </div>
-          <button class="wishlist-btn-round" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" title="Wishlist" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=700&auto=format&fit=crop" alt="Acid Denim" />
+          <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=700&auto=format&fit=crop" alt="Distressed Denim Bomber" />
           
-          <!-- Size Selector Bar -->
+          <!-- Quick Add with S M L buttons -->
           <div class="size-quick-tray">
             <span class="tray-label">QUICK ADD:</span>
-            <button class="size-pill" onclick="addToCart('Acid Wash Work Jacket (S)')">S</button>
-            <button class="size-pill" onclick="addToCart('Acid Wash Work Jacket (M)')">M</button>
-            <button class="size-pill" onclick="addToCart('Acid Wash Work Jacket (L)')">L</button>
+            <div class="size-buttons">
+              <button class="size-pill" onclick="addToCart('Distressed Bomber (S)')">S</button>
+              <button class="size-pill" onclick="addToCart('Distressed Bomber (M)')">M</button>
+              <button class="size-pill" onclick="addToCart('Distressed Bomber (L)')">L</button>
+            </div>
           </div>
         </div>
         <div class="product-details">
           <div class="product-info-left">
-            <h3>Acid Wash Work Jacket</h3>
             <span class="cat-label">NOVA ERA ATELIER</span>
+            <h3 class="product-name-purple">Distressed Oversized Denim Bomber</h3>
           </div>
-          <div class="product-price">$135.00</div>
         </div>
       </div>
 
-      <!-- Product 2: Cyber Chunky Runners -->
+      <!-- Product 2: Cyber Chunky Sneakers -->
       <div class="product-item product-card" data-category="gorpcore">
         <div class="product-img-box">
           <div class="badges-stack">
             <span class="tag-badge badge-black">TRENDING</span>
             <span class="tag-badge badge-red">LOW STOCK</span>
           </div>
-          <button class="wishlist-btn-round" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" title="Wishlist" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=700&auto=format&fit=crop" alt="Cyber Runners" />
-          <button class="quick-add" onclick="addToCart('Phantom Cyber Runners')">+ Quick Add</button>
+          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&auto=format&fit=crop" alt="Cyber Stride Platform" />
         </div>
         <div class="product-details">
           <div class="product-info-left">
-            <h3>Phantom Cyber Runners</h3>
             <span class="cat-label">NOVA FOOTWEAR LAB</span>
+            <h3>Cyber-Stride Chunky 02 Platform</h3>
           </div>
-          <div class="product-price">$180.00</div>
         </div>
       </div>
 
-      <!-- Product 3: Leather Blazer / Crossbody Set -->
+      <!-- Product 3: Tactical Sling / Suit -->
       <div class="product-item product-card" data-category="clean">
         <div class="product-img-box">
           <div class="badges-stack">
             <span class="tag-badge badge-lime">VIRAL ON REELS</span>
           </div>
-          <button class="wishlist-btn-round" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" title="Wishlist" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop" alt="Tailored Streetwear" />
-          <button class="quick-add" onclick="addToCart('Techwear Crossbody & Suit')">+ Quick Add</button>
+          <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=700&auto=format&fit=crop" alt="Liquid Chrome Sling" />
         </div>
         <div class="product-details">
           <div class="product-info-left">
-            <h3>Minimalist Tailored Set</h3>
             <span class="cat-label">NOVA ACCESSORIES</span>
+            <h3>Liquid Chrome Tactical Mini Sling</h3>
           </div>
-          <div class="product-price">$165.00</div>
         </div>
       </div>
 
-      <!-- Product 4: Cyber Graphic Glitch Sweater -->
+      <!-- Product 4: Ultraviolet Glitch Sweater -->
       <div class="product-item product-card" data-category="y2k">
         <div class="product-img-box">
           <div class="badges-stack">
             <span class="tag-badge badge-purple">EXCLUSIVE DROP</span>
           </div>
-          <button class="wishlist-btn-round" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" title="Wishlist" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=700&auto=format&fit=crop" alt="Glitch Knitwear" />
-          <button class="quick-add" onclick="addToCart('Neural Glitch Knitwear')">+ Quick Add</button>
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=700&auto=format&fit=crop" alt="Ultraviolet Glitch Jacquard" />
         </div>
         <div class="product-details">
           <div class="product-info-left">
-            <h3>Neural Glitch Knitwear</h3>
             <span class="cat-label">ARCHIVAL KNITWEAR</span>
+            <h3>Ultraviolet Glitch Jacquard Sweater</h3>
           </div>
-          <div class="product-price">$120.00</div>
         </div>
       </div>
     </div>
@@ -559,6 +552,6 @@
   </aside>
 
   <!-- Script File with cache buster -->
-  <script src="script.js?v=7"></script>
+  <script src="script.js?v=8"></script>
 </body>
 </html>
