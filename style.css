@@ -30,7 +30,7 @@ body {
   color: var(--text-dark);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  padding-bottom: 90px; /* Space for the bottom floating dock */
+  padding-bottom: 90px;
 }
 
 /* 0. Top Ceiling Infinite Progress Bar */
@@ -242,7 +242,9 @@ body {
   transition: transform 0.18s ease;
 }
 
-/* 3. Hero Section */
+/* ==========================================================================
+   3. Hero Section (Strict Lock to Match Image 1)
+   ========================================================================== */
 .hero-section {
   max-width: 1400px;
   margin: 0 auto;
@@ -251,9 +253,13 @@ body {
 
 .hero-container {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 50px;
+}
+
+.hero-left {
+  max-width: 540px;
 }
 
 .hero-badge-wrap {
@@ -422,30 +428,39 @@ body {
 }
 
 /* ==========================================================================
-   Hero Right Side-by-Side Dual Card Stage (Exact Image 1 Spec)
+   Hero Right Side-by-Side Dual Card Stage (Locked Dimensions)
    ========================================================================== */
+.hero-right {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
 .hero-side-by-side {
   display: flex;
   align-items: flex-end;
-  gap: 20px;
-  justify-content: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 560px;
 }
 
 /* Left Tall Main Card */
 .hero-box-left {
   width: 310px;
-  height: 490px;
+  height: 480px;
   border-radius: 22px;
   overflow: hidden;
   position: relative;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
   background: #eaeaea;
+  flex-shrink: 0;
 }
 
 .hero-box-left img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 /* Right Column (Sub card + Rating Box) */
@@ -454,11 +469,12 @@ body {
   flex-direction: column;
   gap: 14px;
   width: 220px;
+  flex-shrink: 0;
 }
 
 .sub-tall-card {
   width: 100%;
-  height: 380px;
+  height: 360px;
   border-radius: 20px;
   overflow: hidden;
   position: relative;
@@ -470,25 +486,29 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 /* Frosted Pill Tags on Model Cards */
 .pill-top-tag {
   position: absolute;
   top: 14px;
-  left: 14px;
-  right: 14px;
+  left: 12px;
+  right: 12px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: #09090b;
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 700;
-  padding: 6px 10px;
+  padding: 6px 8px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.4);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pill-bottom-tag {
@@ -507,12 +527,13 @@ body {
 }
 
 .pill-bottom-tag.mini {
-  left: 10px;
-  right: 10px;
+  left: 8px;
+  right: 8px;
   bottom: 10px;
   text-align: center;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   color: #000;
+  padding: 5px 8px;
 }
 
 /* Standalone Rating Strip Card under right card */
@@ -544,13 +565,13 @@ body {
 .rating-lightning {
   background: #000;
   color: var(--accent-lime-bright);
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 /* 4. Common Section Layout */
@@ -1389,34 +1410,29 @@ body {
 
 /* Responsive Breakpoints */
 @media (max-width: 1024px) {
-  .hero-container,
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .hero-right {
+    justify-content: center;
+  }
+  .hero-side-by-side {
+    max-width: 500px;
+  }
   .cyber-banner,
   .lookbook-layout {
     grid-template-columns: 1fr;
   }
-
   .products-grid,
   .category-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .reels-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .footer-container {
     grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 900px) {
-  .hero-side-by-side {
-    flex-direction: column;
-    align-items: center;
-  }
-  .hero-box-left, .hero-box-right {
-    width: 100%;
-    max-width: 320px;
   }
 }
 
@@ -1424,56 +1440,55 @@ body {
   .header-inner {
     padding: 12px 16px;
   }
-
   .nav-menu,
   .search-box {
     display: none;
   }
-
   .hero-section,
   .section,
   .banner-section,
   .newsletter-section {
     padding: 40px 20px;
   }
-
+  .hero-side-by-side {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-box-left,
+  .hero-box-right {
+    width: 100%;
+    max-width: 320px;
+  }
   .quick-add {
     opacity: 1;
     transform: translateY(0);
     background: rgba(255, 255, 255, 0.95);
   }
-
   .products-grid,
   .category-grid,
   .reels-grid {
     grid-template-columns: 1fr;
   }
-
   .countdown-inner {
     flex-direction: column;
     gap: 20px;
     text-align: center;
   }
-
   .newsletter-form {
     flex-direction: column;
   }
-
   .newsletter-form button {
     width: 100%;
   }
-
   .footer-container {
     grid-template-columns: 1fr;
     gap: 30px;
   }
-
   .footer-bottom {
     flex-direction: column;
     gap: 10px;
     text-align: center;
   }
-
   .floating-mod-dock {
     width: 90%;
     justify-content: space-around;
