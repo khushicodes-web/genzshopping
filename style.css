@@ -132,7 +132,6 @@ body {
   color: var(--accent-purple);
 }
 
-/* Header Right Actions */
 .header-actions {
   display: flex;
   align-items: center;
@@ -243,7 +242,7 @@ body {
 }
 
 /* ==========================================================================
-   3. Hero Section (Strict Lock to Match Image 1)
+   3. Hero Section (Locked Dimensions to Match Image 1)
    ========================================================================== */
 .hero-section {
   max-width: 1400px;
@@ -318,7 +317,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Wavy Text Effects (Image 1 Style) */
 .wavy-word {
   position: relative;
   display: inline-block;
@@ -427,9 +425,6 @@ body {
   color: var(--text-muted);
 }
 
-/* ==========================================================================
-   Hero Right Side-by-Side Dual Card Stage (Locked Dimensions)
-   ========================================================================== */
 .hero-right {
   display: flex;
   justify-content: flex-end;
@@ -444,7 +439,6 @@ body {
   max-width: 560px;
 }
 
-/* Left Tall Main Card */
 .hero-box-left {
   width: 310px;
   height: 480px;
@@ -463,7 +457,6 @@ body {
   display: block;
 }
 
-/* Right Column (Sub card + Rating Box) */
 .hero-box-right {
   display: flex;
   flex-direction: column;
@@ -489,7 +482,6 @@ body {
   display: block;
 }
 
-/* Frosted Pill Tags on Model Cards */
 .pill-top-tag {
   position: absolute;
   top: 14px;
@@ -536,7 +528,6 @@ body {
   padding: 5px 8px;
 }
 
-/* Standalone Rating Strip Card under right card */
 .rating-strip-card {
   background: var(--accent-lime-bright);
   color: #102000;
@@ -574,31 +565,32 @@ body {
   font-size: 14px;
 }
 
-/* 4. Common Section Layout */
+/* ==========================================================================
+   4. Trending Section (Image 1 Spec)
+   ========================================================================== */
 .section {
   max-width: 1400px;
   margin: 0 auto;
   padding: 60px 40px;
 }
 
-.section-top {
+.trending-header-wrap {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 36px;
+  align-items: flex-start;
+  margin-bottom: 30px;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
 }
 
-.section-eyebrow {
+.eyebrow-purple {
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.12em;
-  color: var(--accent-purple);
+  color: #8b5cf6;
   display: block;
   margin-bottom: 6px;
-  text-transform: uppercase;
 }
 
 .section-title {
@@ -606,6 +598,26 @@ body {
   font-size: 36px;
   font-weight: 800;
   letter-spacing: -0.5px;
+}
+
+.fire-emoji-badge {
+  font-size: 38px;
+  line-height: 1;
+  margin: 6px 0 10px 0;
+}
+
+.trending-sub {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* Filter Controls & Track */
+.filter-controls-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
 }
 
 .pill-tabs {
@@ -634,6 +646,23 @@ body {
   background: #000;
   color: #fff;
   border-color: #000;
+}
+
+.filter-scroll-track {
+  width: 100%;
+  max-width: 320px;
+  height: 6px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+}
+
+.filter-scroll-thumb {
+  width: 45%;
+  height: 100%;
+  background: #9ca3af;
+  border-radius: 999px;
 }
 
 /* Product Grid */
@@ -678,52 +707,105 @@ body {
   transform: scale(1.06);
 }
 
-.tag-badge {
+/* Badges Stack */
+.badges-stack {
   position: absolute;
   top: 12px;
   left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 3;
+}
+
+.tag-badge {
   padding: 4px 10px;
   border-radius: 999px;
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  z-index: 2;
+  letter-spacing: 0.08em;
+  display: inline-block;
+  width: fit-content;
 }
 
-.badge-black { background: #000; color: #fff; }
-.badge-lime { background: var(--accent-lime); color: #000; }
-.badge-purple { background: var(--accent-purple); color: #fff; }
+.badge-lime { background: #acf847; color: #102000; }
+.badge-purple { background: #7c3aed; color: #ffffff; }
+.badge-black { background: #09090b; color: #ffffff; }
+.badge-red { background: #ef4444; color: #ffffff; }
 
-/* Wishlist Heart Button inside card */
-.wishlist-heart-btn {
+/* Frosted Heart Button */
+.wishlist-btn-round {
   position: absolute;
   top: 12px;
   right: 12px;
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--border-frosted);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 5;
+  z-index: 4;
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.wishlist-heart-btn svg {
+.wishlist-btn-round svg {
   width: 16px;
   height: 16px;
   stroke: #18181b;
 }
 
-.wishlist-heart-btn:hover {
-  transform: scale(1.12);
+.wishlist-btn-round:hover {
+  transform: scale(1.1);
   background: #ffffff;
+}
+
+/* Size Quick Add Tray */
+.size-quick-tray {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  background: rgba(17, 17, 19, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 8px 14px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 4;
+}
+
+.tray-label {
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.size-pill {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.size-pill:hover {
+  background: #acf847;
+  color: #000;
 }
 
 .quick-add {
