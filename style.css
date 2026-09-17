@@ -241,9 +241,7 @@ body {
   transition: transform 0.18s ease;
 }
 
-/* ==========================================================================
-   3. Hero Section (Locked Dimensions to Match Image 1)
-   ========================================================================== */
+/* 3. Hero Section */
 .hero-section {
   max-width: 1400px;
   margin: 0 auto;
@@ -566,7 +564,7 @@ body {
 }
 
 /* ==========================================================================
-   4. Trending Section (Image 1 Spec)
+   4. Trending Section (Image 1 NOVA ERA Spec)
    ========================================================================== */
 .section {
   max-width: 1400px;
@@ -574,13 +572,18 @@ body {
   padding: 60px 40px;
 }
 
-.trending-header-wrap {
+.trending-header-row {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-  gap: 20px;
+  align-items: flex-end;
+  width: 100%;
+  margin-bottom: 34px;
+  gap: 24px;
+}
+
+.trending-left-meta {
+  flex: 1;
+  max-width: 600px;
 }
 
 .eyebrow-purple {
@@ -593,42 +596,43 @@ body {
   margin-bottom: 6px;
 }
 
-.section-title {
+.trending-header-row .section-title {
   font-family: var(--font-display);
-  font-size: 36px;
+  font-size: clamp(32px, 3.8vw, 44px);
   font-weight: 800;
-  letter-spacing: -0.5px;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin-bottom: 4px;
 }
 
 .fire-emoji-badge {
-  font-size: 38px;
+  font-size: 34px;
   line-height: 1;
-  margin: 6px 0 10px 0;
+  margin: 6px 0 8px 0;
 }
 
 .trending-sub {
   font-size: 14px;
   color: #6b7280;
-  margin-top: 4px;
 }
 
-/* Filter Controls & Track */
-.filter-controls-col {
+/* Right Filter Box & Scroll Track */
+.trending-right-filters {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 10px;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .pill-tabs {
   display: flex;
   gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 4px;
+  align-items: center;
 }
 
 .pill-tab {
-  background: #e5e5ea;
+  background: #f1f1f4;
   border: 1px solid var(--border-light);
   padding: 8px 18px;
   border-radius: 999px;
@@ -636,30 +640,30 @@ body {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.02em;
+  color: #333;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
   white-space: nowrap;
 }
 
 .pill-tab.active,
 .pill-tab:hover {
-  background: #000;
-  color: #fff;
-  border-color: #000;
+  background: #09090b;
+  color: #ffffff;
+  border-color: #09090b;
 }
 
 .filter-scroll-track {
-  width: 100%;
-  max-width: 320px;
-  height: 6px;
+  width: 280px;
+  height: 5px;
   background: #e5e7eb;
   border-radius: 999px;
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
 
 .filter-scroll-thumb {
-  width: 45%;
+  width: 40%;
   height: 100%;
   background: #9ca3af;
   border-radius: 999px;
@@ -707,15 +711,16 @@ body {
   transform: scale(1.06);
 }
 
-/* Badges Stack */
+/* Product Card Badges Stack (Clean Separation) */
 .badges-stack {
   position: absolute;
   top: 12px;
   left: 12px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 6px;
-  z-index: 3;
+  z-index: 5;
 }
 
 .tag-badge {
@@ -724,9 +729,9 @@ body {
   font-family: var(--font-mono);
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   display: inline-block;
-  width: fit-content;
+  line-height: 1.2;
 }
 
 .badge-lime { background: #acf847; color: #102000; }
@@ -739,24 +744,24 @@ body {
   position: absolute;
   top: 12px;
   right: 12px;
-  width: 36px;
-  height: 36px;
+  width: 34px;
+  height: 34px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 4;
-  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 5;
+  transition: transform 0.15s ease, background 0.15s ease;
 }
 
 .wishlist-btn-round svg {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
   stroke: #18181b;
 }
 
@@ -765,21 +770,21 @@ body {
   background: #ffffff;
 }
 
-/* Size Quick Add Tray */
+/* Quick Add S M L Tray */
 .size-quick-tray {
   position: absolute;
   bottom: 12px;
   left: 12px;
   right: 12px;
-  background: rgba(17, 17, 19, 0.88);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(17, 17, 19, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 8px 14px;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 4;
+  z-index: 5;
 }
 
 .tray-label {
@@ -788,6 +793,11 @@ body {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.08em;
+}
+
+.size-buttons {
+  display: flex;
+  gap: 6px;
 }
 
 .size-pill {
@@ -800,7 +810,7 @@ body {
   padding: 4px 10px;
   border-radius: 6px;
   cursor: pointer;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: all 0.15s ease;
 }
 
 .size-pill:hover {
@@ -808,35 +818,10 @@ body {
   color: #000;
 }
 
-.quick-add {
-  position: absolute;
-  bottom: 12px;
-  left: 12px;
-  right: 12px;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-frosted);
-  padding: 10px;
-  border-radius: 999px;
-  font-family: var(--font-mono);
+.product-name-purple {
+  color: #7c3aed;
+  font-size: 14px;
   font-weight: 700;
-  font-size: 12px;
-  letter-spacing: 0.08em;
-  cursor: pointer;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.2s ease;
-  color: #000;
-}
-
-.product-item:hover .quick-add {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.quick-add:hover {
-  background: var(--accent-lime);
 }
 
 .product-details {
@@ -1518,6 +1503,21 @@ body {
   }
 }
 
+@media (max-width: 900px) {
+  .trending-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .trending-right-filters {
+    align-items: flex-start;
+    width: 100%;
+  }
+  .pill-tabs {
+    overflow-x: auto;
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .header-inner {
     padding: 12px 16px;
@@ -1540,11 +1540,6 @@ body {
   .hero-box-right {
     width: 100%;
     max-width: 320px;
-  }
-  .quick-add {
-    opacity: 1;
-    transform: translateY(0);
-    background: rgba(255, 255, 255, 0.95);
   }
   .products-grid,
   .category-grid,
