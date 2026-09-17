@@ -84,7 +84,7 @@
     </div>
   </header>
 
-  <!-- Hero Section (Side-by-Side Dual Card Stage) -->
+  <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-container">
       <div class="hero-left">
@@ -152,7 +152,7 @@
     </div>
   </section>
 
-  <!-- Trending Section (100% NOVA ERA Match) -->
+  <!-- Trending Section (Click-to-Pop Size Tray) -->
   <section class="section" id="trending">
     <div class="trending-header-bar">
       <div class="trending-meta-left">
@@ -178,18 +178,18 @@
 
     <div class="products-grid">
       <!-- Card 1: Denim Bomber -->
-      <div class="product-item product-card" data-category="streetwear">
+      <div class="product-item product-card" data-category="streetwear" onclick="toggleSizeTray(this)">
         <div class="product-img-box">
           <div class="badges-stack">
             <span class="tag-badge badge-lime">VIRAL ON TIKTOK</span>
             <span class="tag-badge badge-purple">-30% OFF</span>
           </div>
-          <button class="wishlist-btn-round" onclick="showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" title="Wishlist" onclick="event.stopPropagation(); showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
           <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=700&auto=format&fit=crop" alt="Distressed Denim Bomber" />
           
-          <div class="size-quick-tray">
+          <div class="size-quick-tray" onclick="event.stopPropagation()">
             <span class="tray-label">SIZES:</span>
             <div class="size-buttons">
               <button class="size-pill" onclick="addToCart('Distressed Bomber (S)')">S</button>
@@ -206,7 +206,7 @@
               <strong>$89.00</strong>
               <del>$128.00</del>
             </div>
-            <button class="mini-cart-btn" onclick="addToCart('Distressed Oversized Denim Bomber')">
+            <button class="mini-cart-btn" onclick="event.stopPropagation(); addToCart('Distressed Oversized Denim Bomber')">
               <i data-lucide="shopping-bag"></i>
             </button>
           </div>
@@ -214,19 +214,19 @@
         </div>
       </div>
 
-      <!-- Card 2: Chunky Sneakers -->
-      <div class="product-item product-card" data-category="gorpcore">
+      <!-- Card 2: Cyber Chunky Sneakers -->
+      <div class="product-item product-card" data-category="gorpcore" onclick="toggleSizeTray(this)">
         <div class="product-img-box">
           <div class="badges-stack">
             <span class="tag-badge badge-black">TRENDING</span>
             <span class="tag-badge badge-red">LOW STOCK</span>
           </div>
-          <button class="wishlist-btn-round" onclick="showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" title="Wishlist" onclick="event.stopPropagation(); showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
           <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=700&auto=format&fit=crop" alt="Cyber-Stride Chunky 02 Platform" />
           
-          <div class="size-quick-tray">
+          <div class="size-quick-tray" onclick="event.stopPropagation()">
             <span class="tray-label">SIZES:</span>
             <div class="size-buttons">
               <button class="size-pill" onclick="addToCart('Cyber Platform (38)')">38</button>
@@ -242,7 +242,7 @@
             <div class="pricing-numbers">
               <strong>$145.00</strong>
             </div>
-            <button class="mini-cart-btn" onclick="addToCart('Cyber-Stride Chunky 02 Platform')">
+            <button class="mini-cart-btn" onclick="event.stopPropagation(); addToCart('Cyber-Stride Chunky 02 Platform')">
               <i data-lucide="shopping-bag"></i>
             </button>
           </div>
@@ -251,17 +251,17 @@
       </div>
 
       <!-- Card 3: Model with Sling Bag in Tailored Suit -->
-      <div class="product-item product-card" data-category="clean">
+      <div class="product-item product-card" data-category="clean" onclick="toggleSizeTray(this)">
         <div class="product-img-box">
           <div class="badges-stack">
             <span class="tag-badge badge-lime">VIRAL ON REELS</span>
           </div>
-          <button class="wishlist-btn-round" onclick="showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" title="Wishlist" onclick="event.stopPropagation(); showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop" alt="Liquid Chrome Tactical Mini Sling" />
           
-          <div class="size-quick-tray">
+          <div class="size-quick-tray" onclick="event.stopPropagation()">
             <span class="tray-label">ONE SIZE</span>
             <button class="size-pill lime-btn" onclick="addToCart('Liquid Chrome Tactical Mini Sling')">ADD TO BAG</button>
           </div>
@@ -274,7 +274,7 @@
               <strong>$58.00</strong>
               <del>$75.00</del>
             </div>
-            <button class="mini-cart-btn" onclick="addToCart('Liquid Chrome Tactical Mini Sling')">
+            <button class="mini-cart-btn" onclick="event.stopPropagation(); addToCart('Liquid Chrome Tactical Mini Sling')">
               <i data-lucide="shopping-bag"></i>
             </button>
           </div>
@@ -283,17 +283,17 @@
       </div>
 
       <!-- Card 4: Purple Glitch Sweater Model -->
-      <div class="product-item product-card" data-category="y2k">
+      <div class="product-item product-card" data-category="y2k" onclick="toggleSizeTray(this)">
         <div class="product-img-box">
           <div class="badges-stack">
             <span class="tag-badge badge-purple">EXCLUSIVE DROP</span>
           </div>
-          <button class="wishlist-btn-round" onclick="showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" title="Wishlist" onclick="event.stopPropagation(); showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
           <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=700&auto=format&fit=crop" alt="Ultraviolet Glitch Jacquard Sweater" />
           
-          <div class="size-quick-tray">
+          <div class="size-quick-tray" onclick="event.stopPropagation()">
             <span class="tray-label">SIZES:</span>
             <div class="size-buttons">
               <button class="size-pill" onclick="addToCart('Glitch Sweater (S)')">S</button>
@@ -309,7 +309,7 @@
             <div class="pricing-numbers">
               <strong>$110.00</strong>
             </div>
-            <button class="mini-cart-btn" onclick="addToCart('Ultraviolet Glitch Jacquard Sweater')">
+            <button class="mini-cart-btn" onclick="event.stopPropagation(); addToCart('Ultraviolet Glitch Jacquard Sweater')">
               <i data-lucide="shopping-bag"></i>
             </button>
           </div>
@@ -319,7 +319,7 @@
     </div>
   </section>
 
-  <!-- Lookbook Mod Dock -->
+  <!-- Floating Lookbook Dock -->
   <aside class="floating-mod-dock">
     <button class="dock-pill-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
       <i data-lucide="arrow-up" style="width: 15px; height: 15px;"></i> Top
@@ -335,6 +335,6 @@
   </aside>
 
   <!-- Script with cache-buster -->
-  <script src="script.js?v=10"></script>
+  <script src="script.js?v=11"></script>
 </body>
 </html>
