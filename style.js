@@ -6,13 +6,14 @@ document.addEventListener("DOMContentLoaded", () => {
   startCountdown();
   startDropLiveTimer();
   initHotspots();
+  initFilters();
+  initBundleButton();
 });
 
 // 2. Cart Functionality
 let cartCount = 0;
 
-function addToCart(productName) {
-  cartCount++;
+function updateBadge() {
   const badge = document.getElementById("cartCount");
   if (badge) {
     badge.innerText = cartCount;
@@ -23,6 +24,11 @@ function addToCart(productName) {
       badge.style.transform = "scale(1)";
     }, 180);
   }
+}
+
+function addToCart(productName) {
+  cartCount++;
+  updateBadge();
 
   // Visual confirmation toast
   showToast(`Added "${productName}" to bag!`);
@@ -109,11 +115,42 @@ function initHotspots() {
   });
 }
 
-// 6. Filter Tabs Logic
-const tabs = document.querySelectorAll(".pill-tab");
-tabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    tabs.forEach((t) => t.classList.remove("active"));
-    tab.classList.add("active");
+// 6. Filter Tabs Logic (Active state change + Card hide/show)
+function initFilters() {
+  const tabs = document.querySelectorAll(".pill-tab");
+  const productCards = document.querySelectorAll(".product-card");
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      tabs.forEach((t) => t.classList.remove("active"));
+      tab.classList.add("active");
+
+      const filterCategory = (tab.getAttribute("data-filter") || tab.innerText).trim().toLowerCase();
+
+      productCards.forEach((card) => {
+        const cardCategory = (card.getAttribute("data-category") || "").toLowerCase();
+
+        if (filterCategory === "all" || cardCategory.includes(filterCategory)) {
+          card.style.display = "";
+          card.style.opacity = "1";
+        } else {
+          card.style.display = "none";
+          card.style.opacity = "0";
+        }
+      });
+    });
   });
-});
+}
+
+// 7. Get The Look Bundle Button
+function initBundleButton() {
+  const bundleBtn = document.getElementById("addBundle") || document.querySelector(".bundle-btn");
+
+  if (bundleBtn) {
+    bundleBtn.addEventListener("click", () => {
+      cartCount += 2; // Bomber + Denim bundle count
+      updateBadge();
+      showToast('Added "Night Spiral Bundle" (-15% OFF) to bag!');
+    });
+  }
+}
