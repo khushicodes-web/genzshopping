@@ -166,93 +166,123 @@
     </div>
   </section>
 
-  <!-- Trending Section -->
+  <!-- Trending Section (Exact Image 1 Spec) -->
   <section class="section" id="trending">
-    <div class="section-top">
-      <div>
-        <span class="section-eyebrow">CURATED SELECTION</span>
-        <h2 class="section-title">TRENDING RIGHT NOW 🔥</h2>
+    <div class="trending-header-wrap">
+      <div class="trending-title-group">
+        <span class="eyebrow-purple">• REAL-TIME HYPE MONITOR</span>
+        <div class="title-with-badge">
+          <h2 class="section-title">TRENDING RIGHT NOW</h2>
+        </div>
+        <div class="fire-emoji-badge">🔥</div>
+        <p class="trending-sub">What the feed is obsessing over this second.</p>
       </div>
-      <div class="pill-tabs">
-        <button class="pill-tab active" data-filter="all">All</button>
-        <button class="pill-tab" data-filter="hoodies">Hoodies</button>
-        <button class="pill-tab" data-filter="cargos">Cargos</button>
-        <button class="pill-tab" data-filter="tees">Tees</button>
+
+      <!-- Filter Controls & Progress Bar -->
+      <div class="filter-controls-col">
+        <div class="pill-tabs">
+          <button class="pill-tab active" data-filter="all">All</button>
+          <button class="pill-tab" data-filter="streetwear">Streetwear</button>
+          <button class="pill-tab" data-filter="y2k">Y2K Cyber</button>
+          <button class="pill-tab" data-filter="gorpcore">Gorpcore</button>
+          <button class="pill-tab" data-filter="clean">Clean Fit</button>
+        </div>
+        <!-- Progress Bar Track -->
+        <div class="filter-scroll-track">
+          <div class="filter-scroll-thumb"></div>
+        </div>
       </div>
     </div>
 
     <div class="products-grid">
-      <!-- Product 1 (Cargos/Jackets) -->
-      <div class="product-item product-card" data-category="cargos">
+      <!-- Product 1: Denim Jacket with S M L size tray -->
+      <div class="product-item product-card" data-category="streetwear">
         <div class="product-img-box">
-          <span class="tag-badge badge-black">HOT</span>
-          <button class="wishlist-heart-btn" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
+          <div class="badges-stack">
+            <span class="tag-badge badge-lime">VIRAL ON TIKTOK</span>
+            <span class="tag-badge badge-purple">-30% OFF</span>
+          </div>
+          <button class="wishlist-btn-round" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=700&auto=format&fit=crop" alt="Denim Jacket" />
-          <button class="quick-add" onclick="addToCart('Acid Wash Work Jacket')">+ Quick Add</button>
+          <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=700&auto=format&fit=crop" alt="Acid Denim" />
+          
+          <!-- Size Selector Bar -->
+          <div class="size-quick-tray">
+            <span class="tray-label">QUICK ADD:</span>
+            <button class="size-pill" onclick="addToCart('Acid Wash Work Jacket (S)')">S</button>
+            <button class="size-pill" onclick="addToCart('Acid Wash Work Jacket (M)')">M</button>
+            <button class="size-pill" onclick="addToCart('Acid Wash Work Jacket (L)')">L</button>
+          </div>
         </div>
         <div class="product-details">
           <div class="product-info-left">
             <h3>Acid Wash Work Jacket</h3>
-            <span class="cat-label">Heavyweight Denim</span>
+            <span class="cat-label">NOVA ERA ATELIER</span>
           </div>
           <div class="product-price">$135.00</div>
         </div>
       </div>
 
-      <!-- Product 2 (Footwear) -->
-      <div class="product-item product-card" data-category="footwear">
+      <!-- Product 2: Cyber Chunky Runners -->
+      <div class="product-item product-card" data-category="gorpcore">
         <div class="product-img-box">
-          <span class="tag-badge badge-lime">NEW</span>
-          <button class="wishlist-heart-btn" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
+          <div class="badges-stack">
+            <span class="tag-badge badge-black">TRENDING</span>
+            <span class="tag-badge badge-red">LOW STOCK</span>
+          </div>
+          <button class="wishlist-btn-round" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&auto=format&fit=crop" alt="Techwear Runners" />
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=700&auto=format&fit=crop" alt="Cyber Runners" />
           <button class="quick-add" onclick="addToCart('Phantom Cyber Runners')">+ Quick Add</button>
         </div>
         <div class="product-details">
           <div class="product-info-left">
             <h3>Phantom Cyber Runners</h3>
-            <span class="cat-label">Footwear</span>
+            <span class="cat-label">NOVA FOOTWEAR LAB</span>
           </div>
           <div class="product-price">$180.00</div>
         </div>
       </div>
 
-      <!-- Product 3 (Tees) -->
-      <div class="product-item product-card" data-category="tees">
+      <!-- Product 3: Leather Blazer / Crossbody Set -->
+      <div class="product-item product-card" data-category="clean">
         <div class="product-img-box">
-          <span class="tag-badge badge-purple">LIMITED</span>
-          <button class="wishlist-heart-btn" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
+          <div class="badges-stack">
+            <span class="tag-badge badge-lime">VIRAL ON REELS</span>
+          </div>
+          <button class="wishlist-btn-round" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=700&auto=format&fit=crop" alt="Gothic Graphic Tee" />
-          <button class="quick-add" onclick="addToCart('Overthink 3 AM Tee')">+ Quick Add</button>
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop" alt="Tailored Streetwear" />
+          <button class="quick-add" onclick="addToCart('Techwear Crossbody & Suit')">+ Quick Add</button>
         </div>
         <div class="product-details">
           <div class="product-info-left">
-            <h3>Overthink 3 AM Tee</h3>
-            <span class="cat-label">300 GSM Heavy Cotton</span>
+            <h3>Minimalist Tailored Set</h3>
+            <span class="cat-label">NOVA ACCESSORIES</span>
           </div>
-          <div class="product-price">$65.00</div>
+          <div class="product-price">$165.00</div>
         </div>
       </div>
 
-      <!-- Product 4 (Hoodies) -->
-      <div class="product-item product-card" data-category="hoodies">
+      <!-- Product 4: Cyber Graphic Glitch Sweater -->
+      <div class="product-item product-card" data-category="y2k">
         <div class="product-img-box">
-          <span class="tag-badge badge-black">POPULAR</span>
-          <button class="wishlist-heart-btn" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
+          <div class="badges-stack">
+            <span class="tag-badge badge-purple">EXCLUSIVE DROP</span>
+          </div>
+          <button class="wishlist-btn-round" title="Save to wishlist" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=700&auto=format&fit=crop" alt="Boxy Zip Hoodie" />
-          <button class="quick-add" onclick="addToCart('Neural Glitch Hoodie')">+ Quick Add</button>
+          <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=700&auto=format&fit=crop" alt="Glitch Knitwear" />
+          <button class="quick-add" onclick="addToCart('Neural Glitch Knitwear')">+ Quick Add</button>
         </div>
         <div class="product-details">
           <div class="product-info-left">
-            <h3>Neural Glitch Hoodie</h3>
-            <span class="cat-label">Acid Wash Fleece</span>
+            <h3>Neural Glitch Knitwear</h3>
+            <span class="cat-label">ARCHIVAL KNITWEAR</span>
           </div>
           <div class="product-price">$120.00</div>
         </div>
@@ -529,6 +559,6 @@
   </aside>
 
   <!-- Script File with cache buster -->
-  <script src="script.js?v=6"></script>
+  <script src="script.js?v=7"></script>
 </body>
 </html>
