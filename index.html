@@ -69,7 +69,7 @@
         </button>
 
         <!-- Account Icon Button -->
-        <button class="icon-btn" title="Account" onclick="showToast('Account profile: Preeti')">
+        <button class="icon-btn" title="Account" onclick="showToast('Account profile active')">
           <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
@@ -89,7 +89,7 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section (Exact Image 1 Side-by-Side Cards) -->
   <section class="hero-section">
     <div class="hero-container">
       <div class="hero-left">
@@ -104,8 +104,8 @@
         <h1 class="hero-title">
           YOUR<br/>
           STYLE.<br/>
-          <span class="gradient-text">YOUR</span><br/>
-          <span class="lime-text">ERA.</span>
+          <span class="wavy-word violet">YOUR</span><br/>
+          <span class="wavy-word lime">ERA.</span>
         </h1>
         
         <p class="hero-desc">
@@ -130,28 +130,31 @@
         </div>
       </div>
 
+      <!-- Hero Right Side-by-Side Layout -->
       <div class="hero-right">
-        <div class="hero-cards-stack">
-          <!-- Main Hero Model -->
-          <div class="hero-card main-card">
-            <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=800&auto=format&fit=crop" alt="Cyber Techwear Model" />
-            <div class="card-tag">Oversized Acid Washed Hoodie $85</div>
-            <div class="card-bottom-tag">VIRAL ON TIKTOK</div>
+        <div class="hero-side-by-side">
+          <!-- Left Main Card -->
+          <div class="hero-box-left">
+            <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=800&auto=format&fit=crop" alt="Oversized Acid Washed Hoodie" />
+            <div class="pill-top-tag">Oversized Acid Washed Hoodie $85</div>
+            <div class="pill-bottom-tag">VIRAL ON TIKTOK</div>
           </div>
 
-          <!-- Secondary Hero Model -->
-          <div class="hero-card sub-card">
-            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop" alt="Asymmetric Cargo" />
-            <div class="card-tag mini">Asymmetric Cargo Skirt $72</div>
-          </div>
-
-          <!-- Community Rating Widget -->
-          <div class="community-rating-card">
-            <div class="rating-info">
-              <span class="rating-title">COMMUNITY RATING</span>
-              <strong>4.9 / 5.0 ★</strong>
+          <!-- Right Column (Card + Rating Strip Below) -->
+          <div class="hero-box-right">
+            <div class="sub-tall-card">
+              <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop" alt="Asymmetric Cargo Skirt" />
+              <div class="pill-bottom-tag mini">Asymmetric Cargo Skirt $72</div>
             </div>
-            <div class="rating-spark"><i data-lucide="sparkles"></i></div>
+
+            <!-- Community Rating Strip Card -->
+            <div class="rating-strip-card">
+              <div class="rating-meta">
+                <span>COMMUNITY RATING</span>
+                <strong>4.9 / 5.0 ★</strong>
+              </div>
+              <div class="rating-lightning">⚡</div>
+            </div>
           </div>
         </div>
       </div>
@@ -521,6 +524,6 @@
   </aside>
 
   <!-- Script File with cache buster -->
-  <script src="script.js?v=4"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>
