@@ -32,7 +32,7 @@ body {
   padding-bottom: 90px;
 }
 
-/* Ceiling Loader */
+/* 0. Top Ceiling Infinite Progress Bar */
 .ceiling-loader {
   position: fixed;
   top: 0;
@@ -50,7 +50,7 @@ body {
   100% { background-position: 200% 0; }
 }
 
-/* Announcement Ribbon */
+/* 1. Announcement Ribbon */
 .announcement-bar {
   background: var(--bg-dark);
   color: #fff;
@@ -75,7 +75,7 @@ body {
   100% { transform: translateX(-50%); }
 }
 
-/* Navigation Header */
+/* 2. Header & Navigation */
 .header {
   background: rgba(252, 248, 251, 0.85);
   backdrop-filter: blur(20px) saturate(180%);
@@ -584,7 +584,9 @@ body {
   font-size: 14px;
 }
 
-/* 2. Trending Section */
+/* ==========================================================================
+   2. Trending Section (NOVA ERA Precision Styles)
+   ========================================================================== */
 .trending-header-bar {
   display: flex !important;
   justify-content: space-between !important;
@@ -597,6 +599,25 @@ body {
 .trending-meta-left {
   flex: 1;
   max-width: 600px;
+}
+
+.eyebrow-purple {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #8b5cf6;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.trending-header-bar .section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.8vw, 44px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  margin: 0;
 }
 
 .fire-emoji-badge {
@@ -701,6 +722,7 @@ body {
   display: block;
 }
 
+/* Badges Stack */
 .badges-stack {
   position: absolute;
   top: 12px;
@@ -728,16 +750,17 @@ body {
 .badge-black { background: #09090b; color: #ffffff; }
 .badge-red { background: #ef4444; color: #ffffff; }
 
+/* Frosted Heart Button */
 .wishlist-btn-round {
   position: absolute;
   top: 12px;
   right: 12px;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.6);
   cursor: pointer;
   display: flex;
@@ -748,9 +771,10 @@ body {
 }
 
 .wishlist-btn-round svg {
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
   stroke: #18181b;
+  display: block;
 }
 
 .wishlist-btn-round:hover {
@@ -758,7 +782,9 @@ body {
   background: #ffffff;
 }
 
-/* Pop Size Tray */
+/* ==========================================================================
+   Size Quick Add Tray (Pop on Hover or Click)
+   ========================================================================== */
 .size-quick-tray {
   position: absolute;
   bottom: 12px;
@@ -773,17 +799,20 @@ body {
   align-items: center;
   justify-content: space-between;
   z-index: 10;
-  opacity: 0;
-  transform: translateY(18px);
-  pointer-events: none;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Hidden by default */
+  opacity: 0 !important;
+  transform: translateY(16px) !important;
+  pointer-events: none !important;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
+/* Active on hover or click */
 .product-card:hover .size-quick-tray,
 .product-card.tray-active .size-quick-tray {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  pointer-events: auto !important;
 }
 
 .tray-label {
@@ -823,6 +852,12 @@ body {
   color: #102000;
 }
 
+.size-pill.lime-btn:hover {
+  background: #ffffff;
+  color: #000;
+}
+
+/* Product Details & Bottom Rows */
 .product-details {
   margin-top: 14px;
   display: flex;
@@ -847,6 +882,12 @@ body {
 
 .product-title-link.purple-accent {
   color: #7c3aed;
+}
+
+.product-name-purple {
+  color: #7c3aed;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .price-row {
@@ -909,7 +950,7 @@ body {
   margin-top: 2px;
 }
 
-/* 3. Cyber Oasis Banner */
+/* 3. Cyber Oasis Dark Banner */
 .banner-section {
   max-width: 1400px;
   margin: 20px auto;
@@ -1594,9 +1635,7 @@ body {
     width: 100%;
     max-width: 320px;
   }
-  .products-grid,
-  .category-grid,
-  .reels-grid {
+  .products-grid {
     grid-template-columns: 1fr;
   }
   .countdown-inner {
