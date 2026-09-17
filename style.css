@@ -1,5 +1,4 @@
 :root {
-  /* Kinetic Editorial Design Tokens */
   --bg-main: #fcf8fb;
   --bg-card: #ffffff;
   --bg-dark: #09090b;
@@ -33,7 +32,7 @@ body {
   padding-bottom: 90px;
 }
 
-/* 0. Top Ceiling Infinite Progress Bar */
+/* Ceiling Loader */
 .ceiling-loader {
   position: fixed;
   top: 0;
@@ -51,7 +50,7 @@ body {
   100% { background-position: 200% 0; }
 }
 
-/* 1. Announcement Ribbon */
+/* Announcement Ribbon */
 .announcement-bar {
   background: var(--bg-dark);
   color: #fff;
@@ -76,7 +75,7 @@ body {
   100% { transform: translateX(-50%); }
 }
 
-/* 2. Header & Navigation */
+/* Navigation Header */
 .header {
   background: rgba(252, 248, 251, 0.85);
   backdrop-filter: blur(20px) saturate(180%);
@@ -160,13 +159,9 @@ body {
   width: 100%;
 }
 
-.search-box input::placeholder {
-  color: #999;
-}
-
 .nav-svg {
-  width: 19px;
-  height: 19px;
+  width: 18px;
+  height: 18px;
   stroke: #18181b;
   display: block;
 }
@@ -236,9 +231,40 @@ body {
   justify-content: center;
 }
 
-/* ==========================================================================
-   3. Hero Section
-   ========================================================================== */
+/* Common Section */
+.section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.section-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 34px;
+  gap: 20px;
+}
+
+.section-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #8b5cf6;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 3.8vw, 44px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+/* 1. Hero Section */
 .hero-section {
   max-width: 1400px;
   margin: 0 auto;
@@ -287,9 +313,8 @@ body {
 }
 
 @keyframes pulse {
-  0% { transform: scale(0.9); opacity: 0.8; }
+  0%, 100% { transform: scale(0.9); opacity: 0.8; }
   50% { transform: scale(1.3); opacity: 1; }
-  100% { transform: scale(0.9); opacity: 0.8; }
 }
 
 .badge-timer {
@@ -559,15 +584,7 @@ body {
   font-size: 14px;
 }
 
-/* ==========================================================================
-   4. Trending Section (NOVA ERA Precision Styles)
-   ========================================================================== */
-.section {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 60px 40px;
-}
-
+/* 2. Trending Section */
 .trending-header-bar {
   display: flex !important;
   justify-content: space-between !important;
@@ -580,25 +597,6 @@ body {
 .trending-meta-left {
   flex: 1;
   max-width: 600px;
-}
-
-.eyebrow-purple {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: #8b5cf6;
-  display: block;
-  margin-bottom: 6px;
-}
-
-.trending-header-bar .section-title {
-  font-family: var(--font-display);
-  font-size: clamp(32px, 3.8vw, 44px);
-  font-weight: 800;
-  letter-spacing: -1px;
-  line-height: 1.1;
-  margin: 0;
 }
 
 .fire-emoji-badge {
@@ -703,7 +701,6 @@ body {
   display: block;
 }
 
-/* Badges Stack */
 .badges-stack {
   position: absolute;
   top: 12px;
@@ -731,7 +728,6 @@ body {
 .badge-black { background: #09090b; color: #ffffff; }
 .badge-red { background: #ef4444; color: #ffffff; }
 
-/* Frosted Heart Button */
 .wishlist-btn-round {
   position: absolute;
   top: 12px;
@@ -762,9 +758,7 @@ body {
   background: #ffffff;
 }
 
-/* ==========================================================================
-   Size Quick Add Tray (Hidden by Default -> Pop on Hover or Click)
-   ========================================================================== */
+/* Pop Size Tray */
 .size-quick-tray {
   position: absolute;
   bottom: 12px;
@@ -779,15 +773,12 @@ body {
   align-items: center;
   justify-content: space-between;
   z-index: 10;
-  
-  /* Initial State: Hidden */
   opacity: 0;
   transform: translateY(18px);
   pointer-events: none;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Pop up on Click (active) or Hover */
 .product-card:hover .size-quick-tray,
 .product-card.tray-active .size-quick-tray {
   opacity: 1;
@@ -832,12 +823,6 @@ body {
   color: #102000;
 }
 
-.size-pill.lime-btn:hover {
-  background: #ffffff;
-  color: #000;
-}
-
-/* Product Details & Bottom Rows */
 .product-details {
   margin-top: 14px;
   display: flex;
@@ -862,12 +847,6 @@ body {
 
 .product-title-link.purple-accent {
   color: #7c3aed;
-}
-
-.product-name-purple {
-  color: #7c3aed;
-  font-size: 14px;
-  font-weight: 700;
 }
 
 .price-row {
@@ -930,7 +909,7 @@ body {
   margin-top: 2px;
 }
 
-/* 5. Cyber Oasis Dark Banner */
+/* 3. Cyber Oasis Banner */
 .banner-section {
   max-width: 1400px;
   margin: 20px auto;
@@ -1021,7 +1000,7 @@ body {
   object-fit: cover;
 }
 
-/* 6. Shop by Category Grid */
+/* 4. Shop by Category */
 .view-all-link {
   font-family: var(--font-mono);
   font-size: 13px;
@@ -1073,7 +1052,7 @@ body {
   letter-spacing: 0.12em;
 }
 
-/* 7. Video Reels */
+/* 5. Video Reels */
 .reels-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1107,7 +1086,6 @@ body {
   left: 14px;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
   color: #fff;
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1162,7 +1140,12 @@ body {
   color: #000;
 }
 
-/* 8. Get The Look */
+/* 6. Obsession Section */
+.obsession-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* 7. Lookbook */
 .lookbook-layout {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -1312,18 +1295,17 @@ body {
   padding: 16px;
 }
 
-/* 9. Countdown Strip */
+/* 8. Countdown Strip */
 .countdown-strip {
   background: #000;
   color: #fff;
   padding: 30px 40px;
-  margin: 40px 0;
+  margin: 40px auto;
+  max-width: 1400px;
   border-radius: 28px;
 }
 
 .countdown-inner {
-  max-width: 1400px;
-  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1381,7 +1363,7 @@ body {
   font-weight: 800;
 }
 
-/* 10. Newsletter */
+/* 9. Newsletter */
 .newsletter-section {
   max-width: 1400px;
   margin: 40px auto 80px;
@@ -1448,7 +1430,7 @@ body {
   cursor: pointer;
 }
 
-/* 11. Footer */
+/* 10. Footer */
 .footer {
   background: #ebebee;
   padding: 80px 40px 30px;
@@ -1512,7 +1494,7 @@ body {
   font-weight: 600;
 }
 
-/* 12. Floating Mod-Dock */
+/* Floating Mod-Dock */
 .floating-mod-dock {
   position: fixed;
   bottom: 24px;
@@ -1584,6 +1566,15 @@ body {
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .reels-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cyber-banner, .lookbook-layout {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1603,8 +1594,30 @@ body {
     width: 100%;
     max-width: 320px;
   }
-  .products-grid {
+  .products-grid,
+  .category-grid,
+  .reels-grid {
     grid-template-columns: 1fr;
+  }
+  .countdown-inner {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .newsletter-form {
+    flex-direction: column;
+  }
+  .newsletter-form button {
+    width: 100%;
+  }
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
   }
   .floating-mod-dock {
     width: 90%;
