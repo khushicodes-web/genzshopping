@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>overthink.club™ — Your Style. Your Era.</title>
+  <title>NOVA ERA — Your Style. Your Era.</title>
 
-  <!-- Google Fonts: Plus Jakarta Sans, Syne, Space Grotesk -->
+  <!-- Google Fonts: Syne, Plus Jakarta Sans, Space Grotesk -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
@@ -13,16 +13,16 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- External Stylesheet -->
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Ceiling Infinite Loader -->
+  <!-- Screen Ceiling Infinite Loader -->
   <div class="ceiling-loader"></div>
 
-  <!-- Top Announcement Bar -->
-  <div class="announcement-bar">
+  <!-- Announcement Ribbon -->
+  <aside class="announcement-bar">
     <div class="marquee-track">
       <span>⚡ FREE SHIPPING WORLDWIDE ON ORDERS OVER $150</span>
       <span>•</span>
@@ -32,14 +32,12 @@
       <span>•</span>
       <span>⚡ FREE SHIPPING WORLDWIDE ON ORDERS OVER $150</span>
     </div>
-  </div>
+  </aside>
 
-  <!-- Main Navigation -->
+  <!-- Header Navigation -->
   <header class="header">
     <div class="header-inner">
-      <a href="#" class="brand-logo">
-        OVERTHINK<span>CLUB™</span>
-      </a>
+      <a href="#" class="brand-logo">NOVA ERA</a>
 
       <nav class="nav-menu">
         <a href="#shop">Shop</a>
@@ -48,10 +46,10 @@
         <a href="#women">Women</a>
         <a href="#men">Men</a>
         <a href="#accessories">Accessories</a>
+        <a href="#beauty">Beauty</a>
       </nav>
 
       <div class="header-actions">
-        <!-- Search Bar -->
         <div class="search-box">
           <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
@@ -60,23 +58,20 @@
           <input type="text" placeholder="Search archive, fits, drops..." />
         </div>
 
-        <!-- Wishlist Icon Button -->
-        <button class="icon-btn" title="Wishlist" onclick="showToast('Wishlist syncing...')">
+        <button class="icon-btn" title="Wishlist" onclick="showToast('Wishlist items synced')">
           <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
           <span class="badge-mini">4</span>
         </button>
 
-        <!-- Account Icon Button -->
-        <button class="icon-btn" title="Account" onclick="showToast('Account profile active')">
+        <button class="icon-btn" title="Account">
           <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
         </button>
 
-        <!-- Cart Pill Button -->
         <button class="cart-pill-btn" onclick="openCart()" title="Shopping Cart">
           <svg class="nav-svg stroke-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
@@ -89,16 +84,14 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Hero Section (Side-by-Side Dual Card Stage) -->
   <section class="hero-section">
     <div class="hero-container">
-      
-      <!-- Left Column -->
       <div class="hero-left">
         <div class="hero-badge-wrap">
           <span class="hero-badge">
             <span class="pulse-dot"></span>
-            DROP LIVE • AUTUMN/CYBER '26
+            DROP LIVE • AUTUMN/CYBER '24
           </span>
           <span class="badge-timer">02D : 14H : 32M</span>
         </div>
@@ -115,8 +108,8 @@
         </p>
 
         <div class="hero-buttons">
-          <a href="#trending" class="btn-black">SHOP NOW <i data-lucide="arrow-up-right"></i></a>
-          <a href="#lookbook" class="btn-outline">EXPLORE TRENDS</a>
+          <a href="#trending" class="btn-black">SHOP NOW ➔</a>
+          <a href="#lookbook" class="btn-outline">EXPLORE TRENDS ⊙</a>
         </div>
 
         <div class="hero-social-proof">
@@ -132,25 +125,20 @@
         </div>
       </div>
 
-      <!-- Right Column (Side-by-side Cards) -->
       <div class="hero-right">
         <div class="hero-side-by-side">
-          
-          <!-- Left Main Tall Card -->
           <div class="hero-box-left">
             <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=800&auto=format&fit=crop" alt="Oversized Acid Washed Hoodie" />
             <div class="pill-top-tag">Oversized Acid Washed Hoodie $85</div>
             <div class="pill-bottom-tag">VIRAL ON TIKTOK</div>
           </div>
 
-          <!-- Right Sub Card + Rating Strip -->
           <div class="hero-box-right">
             <div class="sub-tall-card">
               <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop" alt="Asymmetric Cargo Skirt" />
               <div class="pill-bottom-tag mini">Asymmetric Cargo Skirt $72</div>
             </div>
 
-            <!-- Community Rating Strip Card -->
             <div class="rating-strip-card">
               <div class="rating-meta">
                 <span>COMMUNITY RATING</span>
@@ -159,17 +147,14 @@
               <div class="rating-lightning">⚡</div>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
   </section>
 
-  <!-- Trending Section (Exact 1:1 NOVA ERA Replica) -->
+  <!-- Trending Section (100% NOVA ERA Match) -->
   <section class="section" id="trending">
     <div class="trending-header-bar">
-      <!-- Left Metadata -->
       <div class="trending-meta-left">
         <span class="eyebrow-purple">• REAL-TIME HYPE MONITOR</span>
         <h2 class="section-title">TRENDING RIGHT NOW</h2>
@@ -177,7 +162,6 @@
         <p class="trending-sub">What the feed is obsessing over this second.</p>
       </div>
 
-      <!-- Right Filters & Track Bar -->
       <div class="trending-filters-right">
         <div class="pill-tabs">
           <button class="pill-tab active" data-filter="all">All</button>
@@ -193,14 +177,14 @@
     </div>
 
     <div class="products-grid">
-      <!-- Product 1: Denim Bomber Model -->
+      <!-- Card 1: Denim Bomber -->
       <div class="product-item product-card" data-category="streetwear">
         <div class="product-img-box">
           <div class="badges-stack">
             <span class="tag-badge badge-lime">VIRAL ON TIKTOK</span>
             <span class="tag-badge badge-purple">-30% OFF</span>
           </div>
-          <button class="wishlist-btn-round" title="Wishlist" onclick="showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
           <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=700&auto=format&fit=crop" alt="Distressed Denim Bomber" />
@@ -222,7 +206,7 @@
               <strong>$89.00</strong>
               <del>$128.00</del>
             </div>
-            <button class="mini-cart-btn" onclick="addToCart('Distressed Oversized Denim Bomber')" title="Quick Add">
+            <button class="mini-cart-btn" onclick="addToCart('Distressed Oversized Denim Bomber')">
               <i data-lucide="shopping-bag"></i>
             </button>
           </div>
@@ -230,17 +214,17 @@
         </div>
       </div>
 
-      <!-- Product 2: Cyber Chunky Runners -->
+      <!-- Card 2: Chunky Sneakers -->
       <div class="product-item product-card" data-category="gorpcore">
         <div class="product-img-box">
           <div class="badges-stack">
             <span class="tag-badge badge-black">TRENDING</span>
             <span class="tag-badge badge-red">LOW STOCK</span>
           </div>
-          <button class="wishlist-btn-round" title="Wishlist" onclick="showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=700&auto=format&fit=crop" alt="Cyber-Stride Chunky Platform" />
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=700&auto=format&fit=crop" alt="Cyber-Stride Chunky 02 Platform" />
           
           <div class="size-quick-tray">
             <span class="tray-label">SIZES:</span>
@@ -258,7 +242,7 @@
             <div class="pricing-numbers">
               <strong>$145.00</strong>
             </div>
-            <button class="mini-cart-btn" onclick="addToCart('Cyber-Stride Chunky 02 Platform')" title="Quick Add">
+            <button class="mini-cart-btn" onclick="addToCart('Cyber-Stride Chunky 02 Platform')">
               <i data-lucide="shopping-bag"></i>
             </button>
           </div>
@@ -266,16 +250,21 @@
         </div>
       </div>
 
-      <!-- Product 3: Model with Sling Bag in Tailored Set -->
+      <!-- Card 3: Model with Sling Bag in Tailored Suit -->
       <div class="product-item product-card" data-category="clean">
         <div class="product-img-box">
           <div class="badges-stack">
             <span class="tag-badge badge-lime">VIRAL ON REELS</span>
           </div>
-          <button class="wishlist-btn-round" title="Wishlist" onclick="showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop" alt="Tactical Mini Sling" />
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=700&auto=format&fit=crop" alt="Liquid Chrome Tactical Mini Sling" />
+          
+          <div class="size-quick-tray">
+            <span class="tray-label">ONE SIZE</span>
+            <button class="size-pill lime-btn" onclick="addToCart('Liquid Chrome Tactical Mini Sling')">ADD TO BAG</button>
+          </div>
         </div>
         <div class="product-details">
           <span class="cat-label">NOVA ACCESSORIES</span>
@@ -285,7 +274,7 @@
               <strong>$58.00</strong>
               <del>$75.00</del>
             </div>
-            <button class="mini-cart-btn" onclick="addToCart('Liquid Chrome Tactical Mini Sling')" title="Quick Add">
+            <button class="mini-cart-btn" onclick="addToCart('Liquid Chrome Tactical Mini Sling')">
               <i data-lucide="shopping-bag"></i>
             </button>
           </div>
@@ -293,16 +282,25 @@
         </div>
       </div>
 
-      <!-- Product 4: Purple Glitch Sweater Model -->
+      <!-- Card 4: Purple Glitch Sweater Model -->
       <div class="product-item product-card" data-category="y2k">
         <div class="product-img-box">
           <div class="badges-stack">
             <span class="tag-badge badge-purple">EXCLUSIVE DROP</span>
           </div>
-          <button class="wishlist-btn-round" title="Wishlist" onclick="showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" onclick="showToast('Saved to wishlist')">
             <i data-lucide="heart"></i>
           </button>
-          <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=700&auto=format&fit=crop" alt="Ultraviolet Glitch Jacquard" />
+          <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=700&auto=format&fit=crop" alt="Ultraviolet Glitch Jacquard Sweater" />
+          
+          <div class="size-quick-tray">
+            <span class="tray-label">SIZES:</span>
+            <div class="size-buttons">
+              <button class="size-pill" onclick="addToCart('Glitch Sweater (S)')">S</button>
+              <button class="size-pill" onclick="addToCart('Glitch Sweater (M)')">M</button>
+              <button class="size-pill" onclick="addToCart('Glitch Sweater (XL)')">XL</button>
+            </div>
+          </div>
         </div>
         <div class="product-details">
           <span class="cat-label">ARCHIVAL KNITWEAR</span>
@@ -311,7 +309,7 @@
             <div class="pricing-numbers">
               <strong>$110.00</strong>
             </div>
-            <button class="mini-cart-btn" onclick="addToCart('Ultraviolet Glitch Jacquard Sweater')" title="Quick Add">
+            <button class="mini-cart-btn" onclick="addToCart('Ultraviolet Glitch Jacquard Sweater')">
               <i data-lucide="shopping-bag"></i>
             </button>
           </div>
@@ -321,260 +319,7 @@
     </div>
   </section>
 
-  <!-- Cyber Oasis Dark Banner -->
-  <section class="banner-section" id="drops">
-    <div class="cyber-banner">
-      <div class="cyber-left">
-        <span class="banner-tag">LIMITED CAPSULE</span>
-        <h2>NEW DROPS:<br/>CYBER OASIS COLLECTION</h2>
-        <p>Post-apocalyptic silhouettes tailored with waterproof tactical hardware and ultra-soft french terry inner linings.</p>
-        <button class="btn-lime" onclick="window.location.href='#trending'">EXPLORE COLLECTION ↗</button>
-      </div>
-      <div class="cyber-right">
-        <div class="preview-tile">
-          <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=500&auto=format&fit=crop" alt="Drop 1" />
-        </div>
-        <div class="preview-tile offset">
-          <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=500&auto=format&fit=crop" alt="Drop 2" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Shop by Category Grid -->
-  <section class="section" id="categories">
-    <div class="section-top">
-      <div>
-        <span class="section-eyebrow">WARDROBE SYSTEM</span>
-        <h2 class="section-title">SHOP BY CATEGORY</h2>
-      </div>
-      <a href="#trending" class="view-all-link">VIEW ALL (8) ↗</a>
-    </div>
-
-    <div class="category-grid">
-      <div class="cat-card">
-        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop" alt="Parachute Cargo" />
-        <div class="cat-overlay"><span>PARACHUTE CARGOS</span></div>
-      </div>
-      <div class="cat-card">
-        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?w=600&auto=format&fit=crop" alt="Graphic Tees" />
-        <div class="cat-overlay"><span>GRAPHIC TEES</span></div>
-      </div>
-      <div class="cat-card">
-        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&auto=format&fit=crop" alt="Heavy Hoodies" />
-        <div class="cat-overlay"><span>HEAVY HOODIES</span></div>
-      </div>
-      <div class="cat-card">
-        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&auto=format&fit=crop" alt="Runway Shoes" />
-        <div class="cat-overlay"><span>RUNWAY SHOES</span></div>
-      </div>
-      <div class="cat-card">
-        <img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&auto=format&fit=crop" alt="Cyber Eyewear" />
-        <div class="cat-overlay"><span>CYBER EYEWEAR</span></div>
-      </div>
-      <div class="cat-card">
-        <img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=600&auto=format&fit=crop" alt="Distressed Denim" />
-        <div class="cat-overlay"><span>DISTRESSED DENIM</span></div>
-      </div>
-      <div class="cat-card">
-        <img src="https://images.unsplash.com/photo-1535295972055-1c762f4483e5?w=600&auto=format&fit=crop" alt="Silver Jewelry" />
-        <div class="cat-overlay"><span>ACID JEWELRY</span></div>
-      </div>
-      <div class="cat-card">
-        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&auto=format&fit=crop" alt="Headwear" />
-        <div class="cat-overlay"><span>HEADWEAR</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Video Reels -->
-  <section class="section" id="social">
-    <div class="section-top">
-      <div>
-        <span class="section-eyebrow">TIKTOK & INSTAGRAM VIRAL</span>
-        <h2 class="section-title">THE INTERNET MADE ME BUY IT</h2>
-      </div>
-    </div>
-
-    <div class="reels-grid">
-      <!-- Reel 1 -->
-      <div class="reel-card">
-        <div class="reel-video-container">
-          <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=600&auto=format&fit=crop" alt="Fit Check Reel" />
-          <div class="reel-views"><i data-lucide="play"></i> 1.8M VIEWS</div>
-        </div>
-        <div class="reel-footer">
-          <div>
-            <h4>Cyber Leather Moto Jacket</h4>
-            <span class="price">$165.00</span>
-          </div>
-          <button class="btn-buy" onclick="addToCart('Cyber Leather Moto Jacket')">COP</button>
-        </div>
-      </div>
-
-      <!-- Reel 2 -->
-      <div class="reel-card">
-        <div class="reel-video-container">
-          <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=600&auto=format&fit=crop" alt="Fit Check Reel" />
-          <div class="reel-views"><i data-lucide="play"></i> 940K VIEWS</div>
-        </div>
-        <div class="reel-footer">
-          <div>
-            <h4>Wide Leg Flare Cargos</h4>
-            <span class="price">$95.00</span>
-          </div>
-          <button class="btn-buy" onclick="addToCart('Wide Leg Flare Cargos')">COP</button>
-        </div>
-      </div>
-
-      <!-- Reel 3 -->
-      <div class="reel-card">
-        <div class="reel-video-container">
-          <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&auto=format&fit=crop" alt="Fit Check Reel" />
-          <div class="reel-views"><i data-lucide="play"></i> 2.4M VIEWS</div>
-        </div>
-        <div class="reel-footer">
-          <div>
-            <h4>Overthink Knit Beanie</h4>
-            <span class="price">$42.00</span>
-          </div>
-          <button class="btn-buy" onclick="addToCart('Overthink Knit Beanie')">COP</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive "Get The Look" -->
-  <section class="section" id="lookbook">
-    <div class="section-top">
-      <div>
-        <span class="section-eyebrow">STREET ARCHIVE</span>
-        <h2 class="section-title">GET THE LOOK</h2>
-      </div>
-    </div>
-
-    <div class="lookbook-layout">
-      <div class="lookbook-image-pane">
-        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900&auto=format&fit=crop" alt="Outfit Showcase" />
-        <div class="hotspot hotspot-top" title="Raw Hem Leather Bomber">
-          <span class="ping"></span>
-          <span class="dot"></span>
-        </div>
-        <div class="hotspot hotspot-middle" title="Stacking Wide Indigo Denim">
-          <span class="ping"></span>
-          <span class="dot"></span>
-        </div>
-      </div>
-
-      <div class="lookbook-bundle-pane">
-        <h3>COMPLETE "NIGHT SPIRAL" BUNDLE</h3>
-        <p>Grab the entire styled outfit with 1-click bundle discount (-15%).</p>
-
-        <div class="bundle-items">
-          <div class="bundle-row">
-            <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?w=120&auto=format&fit=crop" alt="Jacket" />
-            <div class="bundle-info">
-              <h4>Raw Hem Leather Bomber</h4>
-              <span>Size: Oversized Medium</span>
-            </div>
-            <strong>$180</strong>
-          </div>
-          <div class="bundle-row">
-            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=120&auto=format&fit=crop" alt="Jeans" />
-            <div class="bundle-info">
-              <h4>Stacking Wide Indigo Denim</h4>
-              <span>Size: 30 Waist</span>
-            </div>
-            <strong>$110</strong>
-          </div>
-        </div>
-
-        <div class="bundle-action">
-          <div class="bundle-total">
-            <span>TOTAL LOOK</span>
-            <strong>$246.50 <del>$290.00</del></strong>
-          </div>
-          <button class="btn-lime full bundle-btn" id="addBundle">ADD ALL TO BAG ↗</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Live Countdown Banner -->
-  <section class="countdown-strip">
-    <div class="countdown-inner">
-      <div class="countdown-text">
-        <span class="pill-red">FINAL DROP</span>
-        <h3>LIMITED DROP: ACID ARCHIVE 004</h3>
-      </div>
-      <div class="timer-boxes">
-        <div class="time-unit"><span id="hours">09</span><label>HRS</label></div>
-        <div class="time-sep">:</div>
-        <div class="time-unit"><span id="minutes">42</span><label>MIN</label></div>
-        <div class="time-sep">:</div>
-        <div class="time-unit"><span id="seconds">18</span><label>SEC</label></div>
-      </div>
-      <button class="btn-lime" onclick="window.location.href='#trending'">COP NOW ↗</button>
-    </div>
-  </section>
-
-  <!-- Newsletter -->
-  <section class="newsletter-section">
-    <div class="newsletter-card">
-      <div class="badge-icon">🌀</div>
-      <h2>STAY IN THE LOOP</h2>
-      <p>Subscribe for early drop codes, secret lookbooks, and 15% off your first checkout.</p>
-      <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Welcome to Overthink Club™!');">
-        <input type="email" placeholder="Enter your email address" required />
-        <button type="submit">JOIN CLUB</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-col brand-col">
-        <h3 class="brand-logo">OVERTHINK<span>CLUB™</span></h3>
-        <p>Unapologetic garments for 3 AM spirals and daytime flexes. Designed for the global subculture.</p>
-        <div class="social-icons">
-          <i data-lucide="instagram"></i>
-          <i data-lucide="twitter"></i>
-          <i data-lucide="youtube"></i>
-          <i data-lucide="disc"></i>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>SHOP</h4>
-        <a href="#">New Arrivals</a>
-        <a href="#">Outerwear</a>
-        <a href="#">Pants & Cargos</a>
-        <a href="#">Footwear</a>
-        <a href="#">Accessories</a>
-      </div>
-      <div class="footer-col">
-        <h4>SUPPORT</h4>
-        <a href="#">Order Tracking</a>
-        <a href="#">Shipping & Duties</a>
-        <a href="#">Returns & Exchanges</a>
-        <a href="#">Size Guide</a>
-        <a href="#">Contact Us</a>
-      </div>
-      <div class="footer-col">
-        <h4>CLUB</h4>
-        <a href="#">Our Philosophy</a>
-        <a href="#">Discord Community</a>
-        <a href="#">Sustainability</a>
-        <a href="#">Terms & Privacy</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 OVERTHINK CLUB™. All Rights Reserved.</p>
-      <p>MADE FOR THE NIGHT OWLS.</p>
-    </div>
-  </footer>
-
-  <!-- Floating Lookbook Dock -->
+  <!-- Lookbook Mod Dock -->
   <aside class="floating-mod-dock">
     <button class="dock-pill-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
       <i data-lucide="arrow-up" style="width: 15px; height: 15px;"></i> Top
@@ -589,7 +334,7 @@
     </button>
   </aside>
 
-  <!-- Script File with cache buster -->
-  <script src="script.js?v=9"></script>
+  <!-- Script with cache-buster -->
+  <script src="script.js?v=10"></script>
 </body>
 </html>
