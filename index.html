@@ -31,7 +31,7 @@
     </div>
   </div>
 
-  <!-- Main Navigation (Nova Era Header Design) -->
+  <!-- Main Navigation -->
   <header class="header">
     <div class="header-inner">
       <a href="#" class="brand-logo">
@@ -48,7 +48,7 @@
       </nav>
 
       <div class="header-actions">
-        <!-- Search Bar with Search Icon -->
+        <!-- Search Bar -->
         <div class="search-box">
           <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
@@ -57,8 +57,8 @@
           <input type="text" placeholder="Search archive, fits, drops..." />
         </div>
 
-        <!-- Wishlist Icon Button with Badge -->
-        <button class="icon-btn" title="Wishlist">
+        <!-- Wishlist Icon Button -->
+        <button class="icon-btn" title="Wishlist" onclick="showToast('Wishlist feature coming soon!')">
           <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
@@ -66,14 +66,14 @@
         </button>
 
         <!-- Account Icon Button -->
-        <button class="icon-btn" title="Account">
+        <button class="icon-btn" title="Account" onclick="showToast('Account profile: Preeti')">
           <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
             <circle cx="12" cy="7" r="4"></circle>
           </svg>
         </button>
 
-        <!-- Nova Era Black Pill Cart Button with Lime Circle Counter -->
+        <!-- Cart Pill Button -->
         <button class="cart-pill-btn" onclick="openCart()" title="Shopping Cart">
           <svg class="nav-svg stroke-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
@@ -90,7 +90,6 @@
   <section class="hero-section">
     <div class="hero-container">
       <div class="hero-left">
-        <!-- Dual Pill Drop Live Indicator -->
         <div class="hero-badge-wrap">
           <span class="hero-badge">
             <span class="pulse-dot"></span>
@@ -172,7 +171,7 @@
     </div>
 
     <div class="products-grid">
-      <!-- Product 1 (Jackets/Cargos) -->
+      <!-- Product 1 (Cargos/Jackets) -->
       <div class="product-item product-card" data-category="cargos">
         <div class="product-img-box">
           <span class="tag-badge badge-black">HOT</span>
@@ -188,7 +187,7 @@
         </div>
       </div>
 
-      <!-- Product 2 (Runners) -->
+      <!-- Product 2 (Footwear) -->
       <div class="product-item product-card" data-category="footwear">
         <div class="product-img-box">
           <span class="tag-badge badge-lime">NEW</span>
@@ -304,7 +303,7 @@
     </div>
   </section>
 
-  <!-- Video Reels: "The Internet Made Me Buy It" -->
+  <!-- Video Reels -->
   <section class="section" id="social">
     <div class="section-top">
       <div>
@@ -373,11 +372,11 @@
     <div class="lookbook-layout">
       <div class="lookbook-image-pane">
         <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=900&auto=format&fit=crop" alt="Outfit Showcase" />
-        <div class="hotspot hotspot-top" title="Distressed Bomber">
+        <div class="hotspot hotspot-top" title="Raw Hem Leather Bomber">
           <span class="ping"></span>
           <span class="dot"></span>
         </div>
-        <div class="hotspot hotspot-middle" title="Raw Edge Denim">
+        <div class="hotspot hotspot-middle" title="Stacking Wide Indigo Denim">
           <span class="ping"></span>
           <span class="dot"></span>
         </div>
@@ -441,7 +440,7 @@
       <div class="badge-icon">🌀</div>
       <h2>STAY IN THE LOOP</h2>
       <p>Subscribe for early drop codes, secret lookbooks, and 15% off your first checkout.</p>
-      <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Welcome to Overthink Club™!');">
+      <form class="newsletter-form" onsubmit="event.preventDefault(); showToast('Welcome to Overthink Club™!');">
         <input type="email" placeholder="Enter your email address" required />
         <button type="submit">JOIN CLUB</button>
       </form>
@@ -491,7 +490,7 @@
     </div>
   </footer>
 
-  <!-- Script File -->
-  <script src="script.js"></script>
+  <!-- Script File with cache buster -->
+  <script src="script.js?v=3"></script>
 </body>
 </html>
