@@ -143,7 +143,7 @@
             <div class="card-tag mini">Asymmetric Cargo Skirt $72</div>
           </div>
 
-          <!-- Community Rating Widget (from screenshot) -->
+          <!-- Community Rating Widget -->
           <div class="community-rating-card">
             <div class="rating-info">
               <span class="rating-title">COMMUNITY RATING</span>
@@ -164,16 +164,16 @@
         <h2 class="section-title">TRENDING RIGHT NOW 🔥</h2>
       </div>
       <div class="pill-tabs">
-        <button class="pill-tab active">All</button>
-        <button class="pill-tab">Hoodies</button>
-        <button class="pill-tab">Cargos</button>
-        <button class="pill-tab">Tees</button>
+        <button class="pill-tab active" data-filter="all">All</button>
+        <button class="pill-tab" data-filter="hoodies">Hoodies</button>
+        <button class="pill-tab" data-filter="cargos">Cargos</button>
+        <button class="pill-tab" data-filter="tees">Tees</button>
       </div>
     </div>
 
     <div class="products-grid">
-      <!-- Product 1 -->
-      <div class="product-item">
+      <!-- Product 1 (Jackets/Cargos) -->
+      <div class="product-item product-card" data-category="cargos">
         <div class="product-img-box">
           <span class="tag-badge badge-black">HOT</span>
           <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=700&auto=format&fit=crop" alt="Denim Jacket" />
@@ -188,8 +188,8 @@
         </div>
       </div>
 
-      <!-- Product 2 -->
-      <div class="product-item">
+      <!-- Product 2 (Runners) -->
+      <div class="product-item product-card" data-category="footwear">
         <div class="product-img-box">
           <span class="tag-badge badge-lime">NEW</span>
           <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&auto=format&fit=crop" alt="Techwear Runners" />
@@ -204,8 +204,8 @@
         </div>
       </div>
 
-      <!-- Product 3 -->
-      <div class="product-item">
+      <!-- Product 3 (Tees) -->
+      <div class="product-item product-card" data-category="tees">
         <div class="product-img-box">
           <span class="tag-badge badge-purple">LIMITED</span>
           <img src="https://images.unsplash.com/photo-1578632767115-351597cf2477?w=700&auto=format&fit=crop" alt="Gothic Graphic Tee" />
@@ -220,8 +220,8 @@
         </div>
       </div>
 
-      <!-- Product 4 -->
-      <div class="product-item">
+      <!-- Product 4 (Hoodies) -->
+      <div class="product-item product-card" data-category="hoodies">
         <div class="product-img-box">
           <span class="tag-badge badge-black">POPULAR</span>
           <img src="https://images.unsplash.com/photo-1516826957135-700dedea698c?w=700&auto=format&fit=crop" alt="Boxy Zip Hoodie" />
@@ -411,7 +411,7 @@
             <span>TOTAL LOOK</span>
             <strong>$246.50 <del>$290.00</del></strong>
           </div>
-          <button class="btn-lime full" onclick="addToCart('Night Spiral Full Bundle')">ADD ALL TO BAG ↗</button>
+          <button class="btn-lime full bundle-btn" id="addBundle">ADD ALL TO BAG ↗</button>
         </div>
       </div>
     </div>
