@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initHotspots();
   initFilters();
   initBundleButton();
+  initOutsideClickListener();
 });
 
 // 2. Cart Functionality
@@ -15,6 +16,8 @@ let cartCount = 0;
 
 function updateBadge() {
   const badge = document.getElementById("cartCount");
+  const dockBadge = document.getElementById("dockCartCount");
+
   if (badge) {
     badge.innerText = cartCount;
 
@@ -23,6 +26,10 @@ function updateBadge() {
     setTimeout(() => {
       badge.style.transform = "scale(1)";
     }, 180);
+  }
+
+  if (dockBadge) {
+    dockBadge.innerText = cartCount;
   }
 }
 
@@ -46,16 +53,19 @@ function showToast(msg) {
   let toast = document.createElement("div");
   toast.innerText = msg;
   toast.style.position = "fixed";
-  toast.style.bottom = "24px";
+  toast.style.bottom = "84px";
   toast.style.right = "24px";
-  toast.style.background = "#000";
-  toast.style.color = "#fff";
+  toast.style.background = "#09090b";
+  toast.style.color = "#acf847";
   toast.style.padding = "12px 24px";
   toast.style.borderRadius = "999px";
   toast.style.fontSize = "13px";
   toast.style.fontWeight = "700";
-  toast.style.zIndex = "9999";
-  toast.style.boxShadow = "0 8px 20px rgba(0,0,0,0.3)";
+  toast.style.fontFamily = "'Space Grotesk', monospace";
+  toast.style.letterSpacing = "0.04em";
+  toast.style.zIndex = "99999";
+  toast.style.border = "1px solid rgba(255, 255, 255, 0.15)";
+  toast.style.boxShadow = "0 12px 28px rgba(0,0,0,0.4)";
   document.body.appendChild(toast);
 
   setTimeout(() => {
@@ -153,4 +163,24 @@ function initBundleButton() {
       showToast('Added "Night Spiral Bundle" (-15% OFF) to bag!');
     });
   }
+}
+
+// 8. Size Tray Toggle on Click (Naya Pop Feature)
+function toggleSizeTray(cardElement) {
+  const allCards = document.querySelectorAll(".product-card");
+  allCards.forEach((c) => {
+    if (c !== cardElement) c.classList.remove("tray-active");
+  });
+  cardElement.classList.toggle("tray-active");
+}
+
+// 9. Close Active Trays When Clicking Outside
+function initOutsideClickListener() {
+  document.addEventListener("click", (e) => {
+    if (!e.target.closest(".product-card")) {
+      document.querySelectorAll(".product-card").forEach((c) => {
+        c.classList.remove("tray-active");
+      });
+    }
+  });
 }
