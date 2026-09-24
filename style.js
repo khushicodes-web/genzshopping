@@ -9,7 +9,12 @@ document.addEventListener("DOMContentLoaded", () => {
   initFilters();
   initBundleButton();
   initOutsideClickListener();
-  initSalesPopup(); // Dynamic Sales Toast Tracker
+  initSalesPopup();
+  
+  // FIX: Heart buttons, Add to Bag buttons, and Theme Toggle ko Event Bind karna
+  initWishlistButtons();
+  initAddToCartButtons();
+  initThemeToggle();
 });
 
 // 2. Cart Functionality
@@ -21,8 +26,6 @@ function updateBadge() {
 
   if (badge) {
     badge.innerText = cartCount;
-
-    // Pulse animation
     badge.style.transform = "scale(1.4)";
     setTimeout(() => {
       badge.style.transform = "scale(1)";
@@ -34,17 +37,30 @@ function updateBadge() {
   }
 }
 
+// Global function to attach directly or call from HTML onclick
 function addToCart(productName) {
   cartCount++;
   updateBadge();
-
-  // Visual confirmation toast
   showToast(`Added "${productName}" to bag!`);
+}
+
+// Dynamic Binding for all 'ADD TO BAG' buttons
+function initAddToCartButtons() {
+  const addBtns = document.querySelectorAll(".add-to-bag-btn, [data-action='add-to-cart']");
+  
+  addBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const card = btn.closest(".product-card");
+      const title = card?.querySelector(".product-title")?.innerText || "Item";
+      addToCart(title);
+    });
+  });
 }
 
 function openCart() {
   if (cartCount === 0) {
-    alert("Your bag is empty. Check out the 3 AM drop!");
+    showToast("Your bag is empty. Check out the 3 AM drop!");
   } else {
     alert(`You have ${cartCount} item(s) in your bag. Proceeding to checkout.`);
   }
@@ -76,7 +92,7 @@ function showToast(msg) {
 
 // 3. Drop Countdown Timer (Bottom Strip)
 function startCountdown() {
-  let totalSeconds = 9 * 3600 + 42 * 60 + 18; // 09:42:18 initial
+  let totalSeconds = 9 * 3600 + 42 * 60 + 18;
 
   const hoursEl = document.getElementById("hours");
   const minutesEl = document.getElementById("minutes");
@@ -127,7 +143,7 @@ function initHotspots() {
   });
 }
 
-// 6. Filter Tabs Logic (Active state change + Card hide/show)
+// 6. Filter Tabs Logic
 function initFilters() {
   const tabs = document.querySelectorAll(".pill-tab");
   const productCards = document.querySelectorAll(".product-card");
@@ -160,7 +176,7 @@ function initBundleButton() {
 
   if (bundleBtn) {
     bundleBtn.addEventListener("click", () => {
-      cartCount += 2; // Bomber + Denim bundle count
+      cartCount += 2;
       updateBadge();
       showToast('Added "Night Spiral Bundle" (-15% OFF) to bag!');
     });
@@ -247,16 +263,38 @@ function initSalesPopup() {
 let wishlistCount = 0;
 let wishlistedItems = new Set();
 
+function initWishlistButtons() {
+  // Select all heart icons/buttons inside cards
+  const wishlistBtns = document.querySelectorAll(".wishlist-btn, .heart-icon, .card-heart");
+  
+  wishlistBtns.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const card = btn.closest(".product-card");
+      const title = card?.querySelector(".product-title")?.innerText || "Item";
+      toggleWishlist(btn, title);
+    });
+  });
+
+  // Top Right Wishlist Icon Click Trigger
+  const topWishlistIcon = document.getElementById("wishlistTrigger") || document.querySelector(".top-wishlist-icon");
+  if (topWishlistIcon) {
+    topWishlistIcon.addEventListener("click", toggleWishlistModal);
+  }
+}
+
 function toggleWishlist(btnElement, productName) {
   if (wishlistedItems.has(productName)) {
     wishlistedItems.delete(productName);
     wishlistCount--;
     btnElement.classList.remove("active-wishlist");
+    btnElement.style.color = "";
     showToast(`Removed "${productName}" from wishlist`);
   } else {
     wishlistedItems.add(productName);
     wishlistCount++;
     btnElement.classList.add("active-wishlist");
+    btnElement.style.color = "#ff4757";
     showToast(`Saved "${productName}" to wishlist ❤️`);
   }
 
@@ -264,14 +302,15 @@ function toggleWishlist(btnElement, productName) {
 }
 
 function updateWishlistBadge() {
-  const badge = document.getElementById("wishlistCount");
-  if (badge) {
+  // Select badge by ID or class (Header & Dock)
+  const badges = document.querySelectorAll("#wishlistCount, .wishlist-count-badge");
+  badges.forEach((badge) => {
     badge.innerText = wishlistCount;
     badge.style.transform = "scale(1.4)";
     setTimeout(() => {
       badge.style.transform = "scale(1)";
     }, 180);
-  }
+  });
 }
 
 function toggleWishlistModal() {
@@ -279,5 +318,16 @@ function toggleWishlistModal() {
     showToast("Your wishlist is empty!");
   } else {
     alert(`Your Wishlist (${wishlistCount} items):\n\n` + Array.from(wishlistedItems).join("\n"));
+  }
+}
+
+// 12. Top Right Dark/Light Switch Toggle
+function initThemeToggle() {
+  const themeSwitch = document.querySelector(".theme-switch, .toggle-switch");
+  if (themeSwitch) {
+    themeSwitch.addEventListener("click", () => {
+      document.body.classList.toggle("light-theme");
+      showToast("Theme Toggled");
+    });
   }
 }
