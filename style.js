@@ -1,8 +1,13 @@
-// 1. Initialize Icons & Event Listeners
+// ==========================================
+// 1. Initialize Icons & Main Event Listeners
+// ==========================================
 document.addEventListener("DOMContentLoaded", () => {
+  // Render Lucide Icons
   if (window.lucide) {
     lucide.createIcons();
   }
+
+  // Timers & Dynamic Elements Setup
   startCountdown();
   startDropLiveTimer();
   initHotspots();
@@ -10,16 +15,23 @@ document.addEventListener("DOMContentLoaded", () => {
   initBundleButton();
   initOutsideClickListener();
   initSalesPopup();
-  
-  // FIX: Heart buttons, Add to Bag buttons, and Theme Toggle ko Event Bind karna
+
+  // Attach Wishlist, Cart & Theme Handlers
   initWishlistButtons();
   initAddToCartButtons();
   initThemeToggle();
 });
 
-// 2. Cart Functionality
+// ==========================================
+// 2. Global State Variables
+// ==========================================
 let cartCount = 0;
+let wishlistCount = 0;
+let wishlistedItems = new Set();
 
+// ==========================================
+// 3. Cart Functionality & Badges
+// ==========================================
 function updateBadge() {
   const badge = document.getElementById("cartCount");
   const dockBadge = document.getElementById("dockCartCount");
@@ -37,24 +49,27 @@ function updateBadge() {
   }
 }
 
-// Global function to attach directly or call from HTML onclick
+// Global function to attach directly or call from HTML inline onclick
 function addToCart(productName) {
   cartCount++;
   updateBadge();
   showToast(`Added "${productName}" to bag!`);
 }
 
-// Dynamic Binding for all 'ADD TO BAG' buttons
+// Dynamic Binding for 'ADD TO BAG' and Mini-Cart Buttons
 function initAddToCartButtons() {
-  const addBtns = document.querySelectorAll(".add-to-bag-btn, [data-action='add-to-cart']");
-  
+  const addBtns = document.querySelectorAll(".add-to-bag-btn, .mini-cart-btn, [data-action='add-to-cart']");
+
   addBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const card = btn.closest(".product-card");
-      const title = card?.querySelector(".product-title")?.innerText || "Item";
-      addToCart(title);
-    });
+    // Sirf un buttons par event lagayenge jinpar inline onclick HTML me na ho
+    if (!btn.getAttribute("onclick")) {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const card = btn.closest(".product-card, .product-item");
+        const title = card?.querySelector(".product-title, .product-title-link")?.innerText.trim() || "Item";
+        addToCart(title);
+      });
+    }
   });
 }
 
@@ -66,23 +81,27 @@ function openCart() {
   }
 }
 
+// Toast Popup Alert System
 function showToast(msg) {
   let toast = document.createElement("div");
   toast.innerText = msg;
-  toast.style.position = "fixed";
-  toast.style.bottom = "84px";
-  toast.style.right = "24px";
-  toast.style.background = "#09090b";
-  toast.style.color = "#acf847";
-  toast.style.padding = "12px 24px";
-  toast.style.borderRadius = "999px";
-  toast.style.fontSize = "13px";
-  toast.style.fontWeight = "700";
-  toast.style.fontFamily = "'Space Grotesk', monospace";
-  toast.style.letterSpacing = "0.04em";
-  toast.style.zIndex = "99999";
-  toast.style.border = "1px solid rgba(255, 255, 255, 0.15)";
-  toast.style.boxShadow = "0 12px 28px rgba(0,0,0,0.4)";
+  Object.assign(toast.style, {
+    position: "fixed",
+    bottom: "84px",
+    right: "24px",
+    background: "#09090b",
+    color: "#acf847",
+    padding: "12px 24px",
+    borderRadius: "999px",
+    fontSize: "13px",
+    fontWeight: "700",
+    fontFamily: "'Space Grotesk', monospace",
+    letterSpacing: "0.04em",
+    zIndex: "99999",
+    border: "1px solid rgba(255, 255, 255, 0.15)",
+    boxShadow: "0 12px 28px rgba(0,0,0,0.4)"
+  });
+
   document.body.appendChild(toast);
 
   setTimeout(() => {
@@ -90,7 +109,82 @@ function showToast(msg) {
   }, 2200);
 }
 
-// 3. Drop Countdown Timer (Bottom Strip)
+// ==========================================
+// 4. Wishlist Interactive Logic
+// ==========================================
+function initWishlistButtons() {
+  // Targets classes used in HTML for heart icons
+  const wishlistBtns = document.querySelectorAll(".wishlist-btn, .wishlist-btn-round, .heart-icon");
+
+  wishlistBtns.forEach((btn) => {
+    if (!btn.getAttribute("onclick")) {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const card = btn.closest(".product-card, .product-item");
+        const title = card?.querySelector(".product-title, .product-title-link")?.innerText.trim() || "Selected Product";
+        toggleWishlist(btn, title);
+      });
+    }
+  });
+
+  // Header Wishlist Icon Click Trigger
+  const topWishlistIcon = document.getElementById("wishlistTrigger") || document.querySelector(".top-wishlist-icon");
+  if (topWishlistIcon && !topWishlistIcon.getAttribute("onclick")) {
+    topWishlistIcon.addEventListener("click", toggleWishlistModal);
+  }
+}
+
+function toggleWishlist(btnElement, productName) {
+  const svg = btnElement.querySelector("svg") || btnElement;
+  const path = btnElement.querySelector("path");
+
+  if (wishlistedItems.has(productName)) {
+    wishlistedItems.delete(productName);
+    wishlistCount--;
+    btnElement.classList.remove("active-wishlist");
+
+    // Clear SVG Red Fill back to line outline
+    if (path) path.style.fill = "none";
+    if (svg) svg.style.stroke = "#111";
+
+    showToast(`Removed "${productName}" from wishlist`);
+  } else {
+    wishlistedItems.add(productName);
+    wishlistCount++;
+    btnElement.classList.add("active-wishlist");
+
+    // Apply Red Fill to SVG Path on wishlist click
+    if (path) path.style.fill = "#ff4757";
+    if (svg) svg.style.stroke = "#ff4757";
+
+    showToast(`Saved "${productName}" to wishlist ❤️`);
+  }
+
+  updateWishlistBadge();
+}
+
+function updateWishlistBadge() {
+  const badges = document.querySelectorAll("#wishlistCount, .wishlist-count-badge");
+  badges.forEach((badge) => {
+    badge.innerText = wishlistCount;
+    badge.style.transform = "scale(1.4)";
+    setTimeout(() => {
+      badge.style.transform = "scale(1)";
+    }, 180);
+  });
+}
+
+function toggleWishlistModal() {
+  if (wishlistCount === 0) {
+    showToast("Your wishlist is empty!");
+  } else {
+    alert(`Your Wishlist (${wishlistCount} items):\n\n` + Array.from(wishlistedItems).join("\n"));
+  }
+}
+
+// ==========================================
+// 5. Timers & Countdown Systems
+// ==========================================
 function startCountdown() {
   let totalSeconds = 9 * 3600 + 42 * 60 + 18;
 
@@ -112,7 +206,6 @@ function startCountdown() {
   }, 1000);
 }
 
-// 4. Hero Top Pill Timer (02D : 14H : 32M)
 function startDropLiveTimer() {
   const timerBadge = document.querySelector(".badge-timer");
   if (!timerBadge) return;
@@ -131,7 +224,9 @@ function startDropLiveTimer() {
   }, 1000);
 }
 
-// 5. Lookbook Hotspot Click Handlers
+// ==========================================
+// 6. Lookbook Hotspots Handler
+// ==========================================
 function initHotspots() {
   const hotspots = document.querySelectorAll(".hotspot, .hotspot-pin");
   hotspots.forEach((spot) => {
@@ -143,10 +238,12 @@ function initHotspots() {
   });
 }
 
-// 6. Filter Tabs Logic
+// ==========================================
+// 7. Filter Tabs Logic
+// ==========================================
 function initFilters() {
   const tabs = document.querySelectorAll(".pill-tab");
-  const productCards = document.querySelectorAll(".product-card");
+  const productCards = document.querySelectorAll(".product-card, .product-item");
 
   tabs.forEach((tab) => {
     tab.addEventListener("click", () => {
@@ -170,12 +267,15 @@ function initFilters() {
   });
 }
 
-// 7. Get The Look Bundle Button
+// ==========================================
+// 8. Bundle Button Handler
+// ==========================================
 function initBundleButton() {
   const bundleBtn = document.getElementById("addBundle") || document.querySelector(".bundle-btn");
 
   if (bundleBtn) {
-    bundleBtn.addEventListener("click", () => {
+    bundleBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
       cartCount += 2;
       updateBadge();
       showToast('Added "Night Spiral Bundle" (-15% OFF) to bag!');
@@ -183,7 +283,9 @@ function initBundleButton() {
   }
 }
 
-// 8. Size Tray Toggle on Click
+// ==========================================
+// 9. Size Tray Mechanics
+// ==========================================
 function toggleSizeTray(cardElement) {
   const allCards = document.querySelectorAll(".product-card");
   allCards.forEach((c) => {
@@ -192,7 +294,6 @@ function toggleSizeTray(cardElement) {
   cardElement.classList.toggle("tray-active");
 }
 
-// 9. Close Active Trays When Clicking Outside
 function initOutsideClickListener() {
   document.addEventListener("click", (e) => {
     if (!e.target.closest(".product-card")) {
@@ -203,7 +304,9 @@ function initOutsideClickListener() {
   });
 }
 
+// ==========================================
 // 10. Real-time Sales Toast Popup
+// ==========================================
 function initSalesPopup() {
   const salesData = [
     { name: "Aarav from Delhi", item: "Acid Washed Hoodie", time: "2m ago" },
@@ -246,7 +349,7 @@ function initSalesPopup() {
         <div style="font-size:10px; color:#888;">${data.time}</div>
       </div>
     `;
-    
+
     toast.style.opacity = "1";
     toast.style.transform = "translateY(0)";
 
@@ -259,69 +362,9 @@ function initSalesPopup() {
   }, 9000);
 }
 
-// 11. Wishlist Interactive Logic
-let wishlistCount = 0;
-let wishlistedItems = new Set();
-
-function initWishlistButtons() {
-  // Select all heart icons/buttons inside cards
-  const wishlistBtns = document.querySelectorAll(".wishlist-btn, .heart-icon, .card-heart");
-  
-  wishlistBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const card = btn.closest(".product-card");
-      const title = card?.querySelector(".product-title")?.innerText || "Item";
-      toggleWishlist(btn, title);
-    });
-  });
-
-  // Top Right Wishlist Icon Click Trigger
-  const topWishlistIcon = document.getElementById("wishlistTrigger") || document.querySelector(".top-wishlist-icon");
-  if (topWishlistIcon) {
-    topWishlistIcon.addEventListener("click", toggleWishlistModal);
-  }
-}
-
-function toggleWishlist(btnElement, productName) {
-  if (wishlistedItems.has(productName)) {
-    wishlistedItems.delete(productName);
-    wishlistCount--;
-    btnElement.classList.remove("active-wishlist");
-    btnElement.style.color = "";
-    showToast(`Removed "${productName}" from wishlist`);
-  } else {
-    wishlistedItems.add(productName);
-    wishlistCount++;
-    btnElement.classList.add("active-wishlist");
-    btnElement.style.color = "#ff4757";
-    showToast(`Saved "${productName}" to wishlist ❤️`);
-  }
-
-  updateWishlistBadge();
-}
-
-function updateWishlistBadge() {
-  // Select badge by ID or class (Header & Dock)
-  const badges = document.querySelectorAll("#wishlistCount, .wishlist-count-badge");
-  badges.forEach((badge) => {
-    badge.innerText = wishlistCount;
-    badge.style.transform = "scale(1.4)";
-    setTimeout(() => {
-      badge.style.transform = "scale(1)";
-    }, 180);
-  });
-}
-
-function toggleWishlistModal() {
-  if (wishlistCount === 0) {
-    showToast("Your wishlist is empty!");
-  } else {
-    alert(`Your Wishlist (${wishlistCount} items):\n\n` + Array.from(wishlistedItems).join("\n"));
-  }
-}
-
-// 12. Top Right Dark/Light Switch Toggle
+// ==========================================
+// 11. Theme Switcher Toggle
+// ==========================================
 function initThemeToggle() {
   const themeSwitch = document.querySelector(".theme-switch, .toggle-switch");
   if (themeSwitch) {
