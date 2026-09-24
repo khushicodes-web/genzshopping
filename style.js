@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initFilters();
   initBundleButton();
   initOutsideClickListener();
+  initSalesPopup(); // Dynamic Sales Toast Tracker
 });
 
 // 2. Cart Functionality
@@ -116,10 +117,11 @@ function startDropLiveTimer() {
 
 // 5. Lookbook Hotspot Click Handlers
 function initHotspots() {
-  const hotspots = document.querySelectorAll(".hotspot");
+  const hotspots = document.querySelectorAll(".hotspot, .hotspot-pin");
   hotspots.forEach((spot) => {
-    spot.addEventListener("click", () => {
-      const itemTitle = spot.getAttribute("title") || "Selected Item";
+    spot.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const itemTitle = spot.getAttribute("title") || spot.querySelector("strong")?.innerText || "Selected Item";
       showToast(`Selected: ${itemTitle}`);
     });
   });
@@ -165,7 +167,7 @@ function initBundleButton() {
   }
 }
 
-// 8. Size Tray Toggle on Click (Naya Pop Feature)
+// 8. Size Tray Toggle on Click
 function toggleSizeTray(cardElement) {
   const allCards = document.querySelectorAll(".product-card");
   allCards.forEach((c) => {
@@ -183,4 +185,60 @@ function initOutsideClickListener() {
       });
     }
   });
+}
+
+// 10. Real-time Sales Toast Popup
+function initSalesPopup() {
+  const salesData = [
+    { name: "Aarav from Delhi", item: "Acid Washed Hoodie", time: "2m ago" },
+    { name: "Ananya from Mumbai", item: "Cyber Platform Sneakers", time: "4m ago" },
+    { name: "Rohan from Bangalore", item: "Distressed Denim Bomber", time: "1m ago" }
+  ];
+
+  const toast = document.createElement("div");
+  Object.assign(toast.style, {
+    position: "fixed",
+    bottom: "24px",
+    left: "24px",
+    background: "#09090b",
+    color: "#ffffff",
+    padding: "10px 18px",
+    borderRadius: "14px",
+    fontSize: "12px",
+    fontFamily: "'Space Grotesk', monospace",
+    zIndex: "9999",
+    border: "1px solid rgba(255, 255, 255, 0.15)",
+    boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    opacity: "0",
+    transform: "translateY(20px)",
+    transition: "all 0.4s ease",
+    pointerEvents: "none"
+  });
+
+  document.body.appendChild(toast);
+
+  let index = 0;
+  setInterval(() => {
+    const data = salesData[index];
+    toast.innerHTML = `
+      <span style="background:#acf847; width:8px; height:8px; border-radius:50%; display:inline-block; flex-shrink:0;"></span>
+      <div>
+        <strong>${data.name}</strong> bought <span style="color:#acf847">${data.item}</span>
+        <div style="font-size:10px; color:#888;">${data.time}</div>
+      </div>
+    `;
+    
+    toast.style.opacity = "1";
+    toast.style.transform = "translateY(0)";
+
+    setTimeout(() => {
+      toast.style.opacity = "0";
+      toast.style.transform = "translateY(20px)";
+    }, 4000);
+
+    index = (index + 1) % salesData.length;
+  }, 9000);
 }
