@@ -55,11 +55,11 @@
           <input type="text" placeholder="Search archive, fits, drops..." />
         </div>
 
-        <button class="icon-btn" title="Wishlist" onclick="showToast('Wishlist items synced')">
+        <button class="icon-btn" title="Wishlist" onclick="toggleWishlistModal()">
           <svg class="nav-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
           </svg>
-          <span class="badge-mini">4</span>
+          <span class="badge-mini" id="wishlistCount">0</span>
         </button>
 
         <button class="icon-btn" title="Account">
@@ -122,7 +122,7 @@
             <img src="https://images.unsplash.com/photo-1509967419530-da38b4704bc6?w=800&auto=format&fit=crop" alt="Oversized Acid Washed Hoodie" />
             
             <!-- Interactive Hotspot 1 -->
-            <div class="hotspot-pin" style="top: 35%; left: 45%;">
+            <div class="hotspot-pin" style="top: 35%; left: 45%;" title="Oversized Acid Washed Hoodie">
               <span class="ping"></span>
               <span class="dot">+</span>
               <div class="hotspot-tooltip">
@@ -140,7 +140,7 @@
               <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&auto=format&fit=crop" alt="Asymmetric Cargo Skirt" />
               
               <!-- Interactive Hotspot 2 -->
-              <div class="hotspot-pin" style="top: 60%; left: 50%;">
+              <div class="hotspot-pin" style="top: 60%; left: 50%;" title="Asymmetric Cargo Skirt">
                 <span class="ping"></span>
                 <span class="dot">+</span>
                 <div class="hotspot-tooltip">
@@ -199,7 +199,7 @@
             <span class="tag-badge badge-lime">VIRAL ON TIKTOK</span>
             <span class="tag-badge badge-purple">-30% OFF</span>
           </div>
-          <button class="wishlist-btn-round" title="Wishlist" onclick="event.stopPropagation(); showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" title="Wishlist" onclick="event.stopPropagation(); toggleWishlist(this, 'Distressed Oversized Denim Bomber')">
             <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
@@ -238,7 +238,7 @@
             <span class="tag-badge badge-black">TRENDING</span>
             <span class="tag-badge badge-red">LOW STOCK</span>
           </div>
-          <button class="wishlist-btn-round" title="Wishlist" onclick="event.stopPropagation(); showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" title="Wishlist" onclick="event.stopPropagation(); toggleWishlist(this, 'Cyber-Stride Chunky 02 Platform')">
             <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
@@ -275,7 +275,7 @@
           <div class="badges-stack">
             <span class="tag-badge badge-lime">VIRAL ON REELS</span>
           </div>
-          <button class="wishlist-btn-round" title="Wishlist" onclick="event.stopPropagation(); showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" title="Wishlist" onclick="event.stopPropagation(); toggleWishlist(this, 'Liquid Chrome Tactical Mini Sling')">
             <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
@@ -309,7 +309,7 @@
           <div class="badges-stack">
             <span class="tag-badge badge-purple">EXCLUSIVE DROP</span>
           </div>
-          <button class="wishlist-btn-round" title="Wishlist" onclick="event.stopPropagation(); showToast('Saved to wishlist')">
+          <button class="wishlist-btn-round" title="Wishlist" onclick="event.stopPropagation(); toggleWishlist(this, 'Ultraviolet Glitch Jacquard Sweater')">
             <svg viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="2">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
             </svg>
@@ -670,7 +670,7 @@
       <i data-lucide="arrow-up" style="width: 15px; height: 15px;"></i> Top
     </button>
     <div class="dock-divider"></div>
-    <button class="dock-pill-btn" onclick="showToast('Saved items synced')">
+    <button class="dock-pill-btn" onclick="toggleWishlistModal()">
       <i data-lucide="bookmark" style="width: 15px; height: 15px;"></i> Saved
     </button>
     <div class="dock-divider"></div>
@@ -680,6 +680,6 @@
   </aside>
 
   <!-- Script with cache-buster -->
-  <script src="script.js?v=14"></script>
+  <script src="script.js?v=15"></script>
 </body>
 </html>
