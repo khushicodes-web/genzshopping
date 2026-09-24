@@ -815,7 +815,7 @@ body {
 .badge-black { background: #09090b; color: #ffffff; }
 .badge-red { background: #ef4444; color: #ffffff; }
 
-/* Frosted Heart Button */
+/* Frosted Heart Button & Active Wishlist State */
 .wishlist-btn-round {
   position: absolute;
   top: 12px;
@@ -840,11 +840,23 @@ body {
   height: 17px;
   stroke: #18181b;
   display: block;
+  transition: stroke 0.2s ease, fill 0.2s ease;
 }
 
 .wishlist-btn-round:hover {
   transform: scale(1.1);
   background: #ffffff;
+}
+
+/* Active Wishlist Red Fill State */
+.wishlist-btn-round.active-wishlist {
+  background: #ffffff;
+}
+
+.wishlist-btn-round.active-wishlist svg {
+  stroke: var(--accent-red) !important;
+  fill: var(--accent-red) !important;
+  transform: scale(1.1);
 }
 
 /* ==========================================================================
