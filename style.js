@@ -242,3 +242,42 @@ function initSalesPopup() {
     index = (index + 1) % salesData.length;
   }, 9000);
 }
+
+// 11. Wishlist Interactive Logic
+let wishlistCount = 0;
+let wishlistedItems = new Set();
+
+function toggleWishlist(btnElement, productName) {
+  if (wishlistedItems.has(productName)) {
+    wishlistedItems.delete(productName);
+    wishlistCount--;
+    btnElement.classList.remove("active-wishlist");
+    showToast(`Removed "${productName}" from wishlist`);
+  } else {
+    wishlistedItems.add(productName);
+    wishlistCount++;
+    btnElement.classList.add("active-wishlist");
+    showToast(`Saved "${productName}" to wishlist ❤️`);
+  }
+
+  updateWishlistBadge();
+}
+
+function updateWishlistBadge() {
+  const badge = document.getElementById("wishlistCount");
+  if (badge) {
+    badge.innerText = wishlistCount;
+    badge.style.transform = "scale(1.4)";
+    setTimeout(() => {
+      badge.style.transform = "scale(1)";
+    }, 180);
+  }
+}
+
+function toggleWishlistModal() {
+  if (wishlistCount === 0) {
+    showToast("Your wishlist is empty!");
+  } else {
+    alert(`Your Wishlist (${wishlistCount} items):\n\n` + Array.from(wishlistedItems).join("\n"));
+  }
+}
